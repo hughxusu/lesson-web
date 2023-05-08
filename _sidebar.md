@@ -26,6 +26,8 @@
   * [数组](js/three)
   * [函数](js/four)
   * [对象](js/five)
+* Web API
+  * [WebAPI基本知识](js/dom/one)
 
 * 附录
   * [less](others/less)
