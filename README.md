@@ -9,10 +9,10 @@
 **本站网址**
 
 ```
-https://hughxusu.gitee.io/net_lesson
+https://hughxusu.github.io/lesson-web/
 ```
 
-**[代码仓库](https://gitee.com/hughxusu/net_lesson)**
+**[代码仓库](https://github.com/hughxusu/lesson-web)**
 
 ## 课程目标
 

@@ -25,6 +25,7 @@
     * [循环控制](js/flow/two)
   * [数组](js/three)
   * [函数](js/four)
+  * [对象](js/five)
 
 * 附录
   * [less](others/less)
