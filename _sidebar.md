@@ -28,6 +28,7 @@
   * [对象](js/five)
 * Web API
   * [WebAPI基本知识](js/dom/one)
+  * [DOM事件基础](js/dom/two)
 
 * 附录
   * [less](others/less)
