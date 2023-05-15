@@ -104,5 +104,91 @@ area.addEventListener('input', function () {
 ### 全选和反选
 
 ```js
+let all = document.querySelector('#checkAll')
+let cks = document.querySelectorAll('.ck')
+let span = document.querySelector('span') 
+
+all.addEventListener('click', function () {
+  for (let i = 0; i < cks.length; i++) {
+    cks[i].checked = all.checked
+  }
+  
+  if (all.checked) {
+    span.innerHTML = '取消'
+  } else {
+    span.innerHTML = '全选'
+  }
+})
+
+for (let i = 0; i < cks.length; i++) {
+  cks[i].addEventListener('click', function () {
+    for (let j = 0; j < cks.length; j++) {
+      if (cks[j].checked === false) {
+        all.checked = false
+        span.innerHTML = '全选'
+        return
+      }
+    }
+
+    all.checked = true
+    span.innerHTML = '取消'
+  })
+}
+```
+
+### 购物车加减操作
+
+```js
+let total = document.querySelector('#total')
+let add = document.querySelector('#add')
+let reduce = document.querySelector('#reduce')
+
+add.addEventListener('click', function () {
+  total.value++
+  reduce.disabled = false
+})
+
+reduce.addEventListener('click', function () {
+  total.value--
+  if (total.value <= 1) {
+    reduce.disabled = true
+  }
+})
+```
+
+## 高阶函数
+
+1. 函数作为值传递给属性。
+2. 函数作为参数（回调函数）。
+
+## 环境变量
+
+环境对象指的是函数内部特殊的变量 this ，它代表着当前函数运行时所处的环境。
+
+1. 函数的调用方式不同，this 指代的对象也不同。
+2. 谁调用， this 就是谁，是判断 this 指向的粗略规则。
+3. 直接调用函数，其实相当于是 window 函数，所以 this 指代 window
+
+## 综合案例
+
+> [!note]
+>
+> 排他性操作
+>
+> 1. 取消所有的选中状态。
+> 2. 复活当前元素的选中状态
+
+```js
+let lis = document.querySelectorAll('.tab .tab-item')
+let divs = document.querySelectorAll('.products .main')
+
+for (let i = 0; i < lis.length; i++) {
+  lis[i].addEventListener('click', function () {
+    document.querySelector('.tab .active').classList.remove('active')
+    this.classList.add('active')
+    document.querySelector('.products .active').classList.remove('active')
+    divs[i].classList.add('active')
+  })
+}
 ```
 
