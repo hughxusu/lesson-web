@@ -330,3 +330,57 @@ outline等), 称为重绘。
 * 脚本操作DOM(添加或者删除可见的DOM元素)
 
 简单理解影响到布局了，就会有回流。
+
+## 购物车案例
+
+```js
+let adds = document.querySelectorAll('.add')
+let reduces = document.querySelectorAll('.reduce')
+let dels = document.querySelectorAll('.del')
+let inputs = document.querySelectorAll('.count-c input')
+
+let prices = document.querySelectorAll('.price')
+let totals = document.querySelectorAll('.total')
+let totalResult = document.querySelector('.total-price')
+let totalCount = document.querySelector('#totalCount')
+let carBody = document.querySelector('#carBody')
+for (let i = 0; i < adds.length; i++) {
+  totals[i].innerText = prices[i].innerText
+  adds[i].addEventListener('click', function () {
+    inputs[i].value++
+    reduces[i].disabled = false
+    console.log(parseInt(prices[i].innerText))
+    totals[i].innerText = parseInt(prices[i].innerText) * inputs[i].value + '¥'
+    result()
+  })
+
+  reduces[i].addEventListener('click', function () {
+    inputs[i].value--
+    if (inputs[i].value <= 1) {
+      this.disabled = true
+    }
+    totals[i].innerText = parseInt(prices[i].innerText) * inputs[i].value + '¥'
+    result()
+  })
+
+  dels[i].addEventListener('click', function () {
+    carBody.removeChild(this.parentNode.parentNode)
+    result()
+  })
+}
+
+function result() {
+  let totals = document.querySelectorAll('.total')
+  let inputs = document.querySelectorAll('.count-c input')
+  let sum = 0
+  let num = 0
+  for (let i = 0; i < totals.length; i++) {
+    sum = sum + parseInt(totals[i].innerText)
+    num = num + parseInt(inputs[i].value)
+  }
+  totalResult.innerText = sum + '￥'
+  totalCount.innerText = num
+}
+result()
+```
+
