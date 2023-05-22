@@ -258,5 +258,75 @@ function time() {
 }
 ```
 
+### 发布微博案例
 
+```js
+let textarea = document.querySelector('textarea')
+let useCount = document.querySelector('.useCount')
+let send = document.querySelector('#send')
+let ul = document.querySelector('#list')
+textarea.addEventListener('input', function () {
+  useCount.innerHTML = this.value.length
+})
 
+send.addEventListener('click', function () {
+  if (textarea.value.trim() === '') {
+    textarea.value = ''
+    useCount.innerHTML = 0
+    return alert('内容不能为空')
+  }
+  function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  }
+  let random = getRandom(0, dataArr.length - 1)
+  let li = document.createElement('li')
+  li.innerHTML = `
+    <div class="info">
+    <img class="userpic" src=${dataArr[random].imgSrc}>
+    <span class="username">${dataArr[random].uname}</span>
+    <p class="send-time"> ${new Date().toLocaleString()} </p>
+    </div>
+    <div class="content">${textarea.value}</div>
+    <span class="the_del">X</span>
+  `
+
+  let del = li.querySelector('.the_del')
+  del.addEventListener('click', function () {
+    ul.removeChild(li)
+  })
+  ul.insertBefore(li, ul.children[0])
+  textarea.value = ''
+  useCount.innerHTML = 0
+})
+```
+
+## 重绘和回流
+
+![](https://segmentfault.com/img/bVcYqb4)
+
+* 解析(Parser)HTML，生成DOM树(DOM Tree)
+* 同时解析(Parser) CSS，生成样式规则 (Style Rules)
+* 根据DOM树和样式规则，生成渲染树(Render Tree)
+* 进行布局Layout(回流/重排):根据生成的渲染树，得到节点的几何信息(位置，大小) 
+* 进行绘制Painting(重绘):根据计算和获取的信息进行整个页面的绘制
+* Display:展示在页面上
+
+回流：当 Render Tree 中部分或者全部元素的尺寸、结构、布局等发生改变时，浏览器就会重新渲染部分或全部文档的过程称为回流。
+
+重绘：由于节点(元素)的样式的改变并不影响它在文档流中的位置和文档布局时(比如:color、background-color、
+
+outline等), 称为重绘。
+
+重绘不一定引起回流，而回流一定会引起重绘。
+
+会导致回流的操作：
+
+* 页面的首次刷新
+* 浏览器的窗口大小发生改变
+* 元素的大小或位置发生改变
+* 改变字体的大小
+* 内容的变化(如:input框的输入，图片的大小) 
+* 激活css伪类 (如::hover)
+* 脚本操作DOM(添加或者删除可见的DOM元素)
+
+简单理解影响到布局了，就会有回流。
