@@ -1,7 +1,6 @@
 
 
 * 引言
-  * [了解程序员的工作](intro/web)
   * [前端开发基础知识](intro/base)
   * [程序员的自我修养](intro/experience)
 * HTML
