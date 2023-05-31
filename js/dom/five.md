@@ -47,3 +47,30 @@ window.addEventListener('load', function () {
 ```
 
 当初始的 HTML 文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表 、图像等完全加载。
+
+## 元素大小和位置
+
+###  scroll
+
+获取元素的内容总宽高(不包含滚动条)返回值不带单位：scrollWidth和scrollHeight
+
+获取元素内容往左、往上滚出去看不到的距离：scrollLeft和scrollTop
+
+返回顶部
+
+```js
+let backtop = document.querySelector('.backtop')
+window.addEventListener('scroll', function () {
+  let num = document.documentElement.scrollTop
+  if (num >= 500) {
+    backtop.style.display = 'block'
+  } else {
+    backtop.style.display = 'none'
+  }
+})
+
+backtop.children[1].addEventListener('click', function () {
+  document.documentElement.scrollTop = 0
+})
+```
+
