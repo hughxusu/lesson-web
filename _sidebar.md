@@ -30,6 +30,7 @@
   * [DOM事件基础](js/dom/two)
   * [节点操作](js/dom/three)
   * [事件对象](js/dom/four)
+  * [高级特性](js/dom/five)
 
 * 附录
   * [less](others/less)
