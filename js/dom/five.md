@@ -26,9 +26,6 @@
 </div>
 <script>
     let div = document.querySelector('div')
-    // window.addEventListener('scroll', function () {
-    //     console.log(111)
-    // })
     div.addEventListener('scroll', function () {
         console.log(111)
     })
@@ -56,6 +53,8 @@ window.addEventListener('load', function () {
 
 获取元素内容往左、往上滚出去看不到的距离：scrollLeft和scrollTop
 
+![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da9d66b7bf7b4fa2bffc69ac342a6321~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?)
+
 返回顶部
 
 ```js
@@ -72,5 +71,72 @@ window.addEventListener('scroll', function () {
 backtop.children[1].addEventListener('click', function () {
   document.documentElement.scrollTop = 0
 })
+```
+
+### offset
+
+offsetWidth和offsetHeight：获取元素的自身宽高、包含元素自身设置的宽高、padding、border
+
+offsetLeft和offsetTop：获取元素距离自己定位父级元素的左、上距离（只读属性）
+
+![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8134d02f3b29492684978e7c9e9a4e41~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?)
+
+### client
+
+clientWidth和clientHeight：获取元素的可见部分宽高（不包含边框，滚动条等）
+
+clientLeft和clientTop：获取左边框和上边框宽度
+
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c20191044e1146b3bf9f061a6dff49e9~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?)
+
+```js
+let div = document.querySelector('div')
+console.log(div.scrollWidth)  
+console.log(div.scrollHeight)  
+
+console.log(div.offsetWidth)
+console.log(div.offsetHeight)  
+console.log(div.offsetTop)  
+console.log(div.offsetLeft)
+
+console.log(div.clientWidth)
+console.log(div.clientHeight)
+console.log(div.clientTop) 
+console.log(div.clientLeft)
+```
+
+reize：会在窗口尺寸改变的时候触发事件。
+
+```html
+<style>
+  body {
+      background-color: skyblue;
+  }
+</style>
+<script>
+window.addEventListener('resize', function () {
+  let w = document.documentElement.clientWidth
+  if (w >= 1920) {
+      document.body.style.backgroundColor = 'red'
+  } else if (w > 540) {
+      document.body.style.backgroundColor = 'blue'
+  } else {
+      document.body.style.backgroundColor = 'yellow'
+  }
+})
+</script>
+```
+
+## 后续知识
+
+```mermaid
+flowchart LR
+	a(前端开发)-->b(基础知识html/css/javssscript)-->c(网络请求)-->d(jQuery)
+	c-->e(SPA)-->f(Vue)
+	e-->g(React)-->h(Umi)
+	c-->i(模板渲染)
+	i-->j(Next)
+	e-->k(小程序)
+	d-->l(ajxa)
 ```
 
