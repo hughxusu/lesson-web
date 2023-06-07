@@ -1,8 +1,7 @@
 
 
 * 引言
-  * [前端开发基础知识](intro/base)
-  * [程序员的自我修养](intro/experience)
+  * [前端开发基础知识](a-introduce/base)
 * HTML
   * [认识 HTML](html/index)
   * [基础 HTML 标签](html/first)

@@ -1,3 +1,28 @@
+# 认识前端开发
+
+**什么是前端开发**
+
+互联网服务架构：BS（Browser/Server）与CS（Client/Server）架构
+
+```mermaid
+flowchart LR
+    a(浏览器 Browser) -- http协议 --> c(后台程序)
+    b(客户端 Client) -- 网络请求 --> c
+    subgraph 服务端Server
+    c -- 数据库查询 --> d(数据库)
+    end
+    subgraph 前端
+    a
+    b
+    end
+```
+
+
+
+
+
+
+
 # 前端开发基础知识
 
 ```mermaid
