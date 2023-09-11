@@ -72,24 +72,42 @@ Web 标准要求页面实现:结构、表现、行为三层分离。
 
 ## 前端开发工具
 
-<img src="https://s1.ax1x.com/2023/03/04/ppEn7w9.jpg" style="zoom: 20%;" />
+<img src="https://s1.ax1x.com/2023/09/11/pPgSNmq.jpg" style="zoom: 20%;" />
 
 Chrome 浏览器，设置为默认浏览器。
 
-Vs Code 代码编辑器。
+### WebStrom
 
-### VS Code 使用
+是由 [ JetBrains](https://www.jetbrains.com.cn/) 公司开发的一款网页集成开发环境。
 
-安装 VS Code 插件
+#### 集成开发环境
 
-<img src="https://s1.ax1x.com/2023/02/08/pSRclkR.png" style="zoom:80%;" />
+集成开发环境（IDE，Integrated Development Environment）——集成了开发软件需要的所有工具，一般包括：
 
-常用插件
+* 图形用户界面
+* 代码编辑器（支持代码补全/自动缩进）
+* 编译器/解释器
+* 调试器（断点/单步执行）
+* 其它
 
-| 插件                                                      | 作用               |
-| --------------------------------------------------------- | ------------------ |
-| Chinese (Simplified) Language Pack for Visual Studio Code | 简体中文界面       |
-| open in browser                                           | 选择浏览器打开页面 |
-| Auto Rename Tag                                           | html 重命名        |
-| CSS Peek                                                  | 样式追踪           |
+<img src="https://s1.ax1x.com/2023/09/11/pPgSyc9.jpg" style="zoom:80%;" />
 
+#### JetBrains 教育许可
+
+[JetBrains 为学生和教师提供免费的试用许可](https://www.jetbrains.com.cn/community/education/#students/)
+
+使用高校是学生或教师邮箱注册就可以申请许可证，注意：要使用 .edu 结尾的邮箱。
+
+#### WebStrom
+
+1. 新建一个空文件夹，将其拖入如下界面中。
+
+<img src="https://s1.ax1x.com/2023/09/11/pPgS20x.jpg" style="zoom:80%;" />
+
+2. 新建空白网页
+
+<img src="https://s1.ax1x.com/2023/09/11/pPgSR76.jpg" style="zoom: 40%;" />
+
+3. 运行网页
+
+<img src="https://s1.ax1x.com/2023/09/11/pPgS4hD.jpg" style="zoom:40%;" />
