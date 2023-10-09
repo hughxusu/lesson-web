@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>第1题：普通题</title>
+	<style>
+		#father #son {
+			color:blue; 
+		} 
+		
+		#father p.c2 {
+			color:black;
+		} 
+		
+		div.c1 p.c2 {
+			color:red;
+		} 
+
+		#father { 
+			color:green !important;
+		} 
+
+		div#father.c1 {
+			color: yellow ;
+		} 
+
+	</style>
+</head>
+<body>
+	<div id="father" class="c1">
+		<p id="son" class="c2">
+			这行文本是什么颜色的？ 
+		</p>
+	</div>
+</body>
+</html>
