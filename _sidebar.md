@@ -34,10 +34,3 @@
 * 附录
   * [less](others/less)
 
-
-- **链接** 
-  [<img src="https://static.runoob.com/images/favicon.ico" alt="Code" style="zoom: 60%;" />菜鸟教程](https://www.runoob.com/)
-  [选择器练习](https://flukeout.github.io/)
-  [代码练习](https://www.w3schools.cn/exercises/)
-  
-  
