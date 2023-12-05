@@ -114,7 +114,7 @@ alert(name);
 
 变量的命名规范
 
-<img src="https://s1.ax1x.com/2023/02/26/pppcmkT.jpg" style="zoom:67%;" />
+<img src="https://z1.ax1x.com/2023/11/29/pirSd7n.jpg" style="zoom:75%;" />
 
 JavaScript 中使用驼峰命名法。
 
