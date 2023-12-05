@@ -20,7 +20,13 @@ following_block
 
 条件语句流程图
 
-<img src="https://s1.ax1x.com/2023/03/07/ppen1BD.jpg" style="zoom:67%;" />
+```mermaid
+flowchart
+    a([开始])-->b{if 条件}--True-->c(代码块)-->e([结束])
+    b--False-->e
+```
+
+
 
 
 
@@ -50,7 +56,13 @@ following_block
 
 程序流程图
 
-<img src="https://s1.ax1x.com/2023/03/07/ppenagP.jpg" style="zoom: 67%;" />
+```mermaid
+flowchart
+    a([开始])-->b{if 条件}--True-->c(代码块)-->e([结束])
+    b--False-->f(else 代码块)-->e
+```
+
+
 
 > [!tip]
 >
@@ -83,7 +95,14 @@ following_block
 
 程序流程图
 
-<img src="https://s1.ax1x.com/2023/03/07/ppen23q.jpg" style="zoom: 50%;" />
+```mermaid
+flowchart
+    a([开始])-->b{if 条件1}--True-->c(代码块)-->e([结束])
+    b--False-->f{if 条件2}--True-->g(代码块)-->e
+    f--False-->h(代码块)-->e
+```
+
+
 
 
 
