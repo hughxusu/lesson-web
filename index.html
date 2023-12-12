@@ -60,6 +60,10 @@
       latex: {
         inlineMath   : [['$', '$'], ['\\(', '\\)']], // default
         displayMath  : [['$$', '$$']],               // default
+      },
+
+      mermaidConfig: {
+        querySelector: ".mermaid"
       }
     }
   </script>
@@ -67,7 +71,7 @@
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <!-- mermaid插件 -->
   <script type="module">
-    import mermaid from "https://cdn.bootcdn.net/ajax/libs/mermaid/10.1.0/mermaid.esm.min.mjs";
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
     mermaid.initialize({ startOnLoad: true });
     window.mermaid = mermaid;
   </script>
