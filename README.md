@@ -6,19 +6,25 @@
 
 ## 课程目标
 
-学习前端开发的基本知识。
-
-了解前端开发的主流技术和框架。
+了解前端开发的主要流程和主流技术，学习前端开发的基本知识。
 
 ## 课程内容
 
-* 了解前端开发主要工作。
+* 了解前端开发主要工作和成长路径。
+* 安装前端开发工具并配置开发环境。
+* 掌握 html、css和javascript网页开发语言。
+* 掌握WebAPI的接口和操作方法。
+* 掌握jQuery库。
 
-* 了解前端开发的成长路径。
+## 参考资料
 
-* 掌握 html、css和javascript 网页开发语言。
+### 学习网站
 
-* 掌握 jQuery 库。
+* [mdn社区](https://developer.mozilla.org/zh-CN/)
+* [菜鸟教程](https://www.runoob.com/)
+* [炼码编程](https://www.lintcode.com/problem/?typeId=8)
 
-  
+
+
+
 
