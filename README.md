@@ -25,6 +25,3 @@
 * [炼码编程](https://www.lintcode.com/problem/?typeId=8)
 
 
-
-
-
