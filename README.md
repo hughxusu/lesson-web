@@ -23,5 +23,5 @@
 * [mdn社区](https://developer.mozilla.org/zh-CN/)
 * [菜鸟教程](https://www.runoob.com/)
 * [炼码编程](https://www.lintcode.com/problem/?typeId=8)
-
+* [W3Schools 练习](https://www.w3ccoo.com/exercises/)
 
