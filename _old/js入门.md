@@ -1,16 +1,5 @@
 # js入门
 
-## 简介
-
-JavaScript 编译引擎 v8，最高效果的引擎。
-
-```mermaid
-graph TD
-    JavaScript --> ECMAScript-语法标准
-    JavaScript --> DOM-js操作网页
-    JavaScript --> BOM-js操作浏览器
-```
-
 ## 入门
 
 ```javascript
@@ -25,29 +14,6 @@ console.log("你猜我在哪出来呢？");
 ```
 
 注释方式与c语言一样。
-
-### js编写位置
-
-```html
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-    <!-- 外部引入代码 -->
-		<script type="text/javascript" src="js/script.js"></script>
-    <!-- 内部代码 -->
-		<script type="text/javascript">
-			alert("我是内部的JS代码");
-		</script>
-	</head>
-	<body>
-		<!-- 直接在标签引用 -->
-		<button onclick="alert('讨厌，你点我干嘛~~');">点我一下</button>
-		<!-- 在超链接的href属性中，这样当点击超链接时，会执行js代码 -->
-		<a href="javascript:alert('让你点你就点！！');">你也点我一下</a>
-	</body>
-</html>
-```
 
 ## 基本语法
 

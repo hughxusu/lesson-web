@@ -1,32 +1,5 @@
 # CSS 高级
 
-## CSS 2.1
-
-### Grid和FlexBox
-
-#### Grid
-
-#### FlexBox
-
-```less
-. {
-  display: flex;
-	flex-direction: row; // column; 默认横向排列，可以设置纵向排列
-	justify-content: space-between; // 两端对齐，平均分
-	align-items: center; // item对齐
-}
-```
-
-#### 应用场景
-
-* 一维布局使用flex，二维布局使用grid。
-
-* 使用角度
-  1. 从内容出发：先有一组内容（数量不固定），希望均匀分布在容器中，大小由内容撑开。使用flex。
-  2. 从布局出发：先规划网格（数量固定），把元素填充到网格中。使用grid。
-
-## CSS 3
-
 ## Less
 
 Less是一种动态样式语言，是css预处理器，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。

@@ -20,8 +20,7 @@
 
 ### 学习网站
 
-* [mdn社区](https://developer.mozilla.org/zh-CN/)
+* [mdn社区（前端开发权威网站）](https://developer.mozilla.org/zh-CN/)
 * [菜鸟教程](https://www.runoob.com/)
 * [炼码编程](https://www.lintcode.com/problem/?typeId=8)
 * [W3Schools练习](https://www.w3ccoo.com/exercises/)
-
