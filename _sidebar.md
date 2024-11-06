@@ -29,6 +29,7 @@
   * [JavaScript 介绍](js/a-base/01-介绍.md)
   * [从变量开始](js/a-base/02-变量.md)
   * [数据类型](js/a-base/03-类型.md)
+  * [运算符](js/a-base/04-运算.md)
   * [流程控制](js/flow/index)
     * [条件控制](js/flow/one)
     * [循环控制](js/flow/two)
