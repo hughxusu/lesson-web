@@ -24,18 +24,17 @@
   * [移动端适配](c-css/15-适配)
   * [响应布局](c-css/16-响应)
   
-
 * JavaScript
   * [JavaScript 介绍](js/a-base/01-介绍.md)
   * [从变量开始](js/a-base/02-变量.md)
   * [数据类型](js/a-base/03-类型.md)
   * [运算符](js/a-base/04-运算.md)
-  * [流程控制](js/flow/index)
-    * [条件控制](js/flow/one)
-    * [循环控制](js/flow/two)
-  * [数组](js/three)
-  * [函数](js/four)
-  * [对象](js/five)
+  * [条件控制](js/a-base/05-条件.md)
+  * [数组](js/a-base/06-数组.md)
+  * [循环控制](js/a-base/07-循环.md)
+  * [对象](js/a-base/08-对象.md)
+  * [函数](js/a-base/09-函数.md)
+
 * Web API
   * [WebAPI基本知识](js/dom/one)
   * [DOM事件基础](js/dom/two)
