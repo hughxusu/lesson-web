@@ -32,8 +32,9 @@
   * [条件控制](js/a-base/05-条件.md)
   * [数组](js/a-base/06-数组.md)
   * [循环控制](js/a-base/07-循环.md)
-  * [对象](js/a-base/08-对象.md)
-  * [函数](js/a-base/09-函数.md)
+  * [函数](js/a-base/08-函数.md)
+  * [对象](js/a-base/09-对象.md)
+  * 
 
 * Web API
   * [WebAPI基本知识](js/dom/one)
