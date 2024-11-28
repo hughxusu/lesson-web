@@ -37,11 +37,11 @@
   * 
 
 * Web API
-  * [WebAPI基本知识](js/dom/one)
-  * [DOM事件基础](js/dom/two)
-  * [节点操作](js/dom/three)
-  * [事件对象](js/dom/four)
-  * [高级特性](js/dom/five)
+  * [WebAPI基本知识](js/b-dom/1-基本)
+  * [DOM事件基础](js/b-dom/two)
+  * [节点操作](js/b-dom/three)
+  * [事件对象](js/b-dom/four)
+  * [高级特性](js/b-dom/five)
 
 * 附录
   * [less](others/less)
