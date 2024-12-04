@@ -127,16 +127,7 @@ window.addEventListener('resize', function () {
 </script>
 ```
 
-## 后续知识
 
-```mermaid
-flowchart LR
-	a(前端开发)-->b(基础知识html/css/javssscript)-->c(网络请求)-->d(jQuery)
-	c-->e(SPA)-->f(Vue)
-	e-->g(React)-->h(Umi)
-	c-->i(模板渲染)
-	i-->j(Next)
-	e-->k(小程序)
-	d-->l(ajxa)
-```
+
+
 
