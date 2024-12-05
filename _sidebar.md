@@ -25,7 +25,7 @@
   * [响应布局](c-css/16-响应)
   
 * JavaScript
-  * [JavaScript 介绍](js/a-base/01-介绍.md)
+  * [JavaScript介绍](js/a-base/01-介绍.md)
   * [从变量开始](js/a-base/02-变量.md)
   * [数据类型](js/a-base/03-类型.md)
   * [运算符](js/a-base/04-运算.md)
@@ -38,7 +38,7 @@
 
 * Web API
   * [WebAPI基本知识](js/b-dom/1-基本.md)
-  * [DOM事件基础](js/b-dom/2-事件.md)
+  * [DOM事件](js/b-dom/2-事件.md)
   * [节点操作](js/b-dom/three)
   * [事件对象](js/b-dom/four)
   * [高级特性](js/b-dom/five)
