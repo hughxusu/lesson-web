@@ -38,8 +38,8 @@
 
 * Web API
   * [WebAPI基本知识](js/b-dom/1-基本.md)
-  * [DOM事件](js/b-dom/2-事件.md)
-  * [节点操作](js/b-dom/three)
+  * [DOM事件基础](js/b-dom/2-事件.md)
+  * [节点操作](js/b-dom/3-节点.md)
   * [事件对象](js/b-dom/four)
   * [高级特性](js/b-dom/five)
 

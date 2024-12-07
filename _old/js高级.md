@@ -248,28 +248,9 @@ this.onmessage = function (event) {
 
 ## DOM
 
-### 事件
 
-事件指的就是 用户与浏览器交互的一瞬间。通过为指定事件绑定回调函数的形式来处理事件，当指定事件触发以后回调函数就会被调 用，这样页面就可以完成和用户的交互了。
 
-```html
-<html>
-	<body>
-		<!--在事件对应的属性中设置一些js代码-->
-		<button id="btn1" onmousemove="alert('讨厌，你点我干嘛！');">我是一个按钮</button>
-		<button id="btn">我是一个按钮</button>
-		<script type="text/javascript">
-			// 获取按钮对象
-			var btn = document.getElementById("btn");
-			
-			//绑定一个单击事件
-			btn.onclick = function(){
-				alert("你还点~~~");
-			};
-		</script>
-	</body>
-</html>
-```
+
 
 #### 事件对象
 
@@ -294,55 +275,7 @@ window.onload = function(){
 };
 ```
 
-#### 事件的绑定
 
-```javascript
-window.onload = function(){
-    var btn01 = document.getElementById("btn01");
-
-    /*
-     * 	只能为一个元素的一个事件绑定一个响应函数，不能绑定多个，
-     * 	如果绑定了多个，则后边会覆盖掉前边
-     */
-    btn01.onclick = function(){
-        alert(1);
-    };
-
-    /*
-     * addEventListener() 可以为元素绑定响应函数
-     * 参数：
-     * 1. 事件的字符串，不要on
-     * 2. 回调函数，当事件触发时该函数会被调用
-     * 3. 是否在捕获阶段触发事件，需要一个布尔值，一般都传false
-     *
-     * 可以同时为一个元素的相同事件同时绑定多个响应函数，
-     * 当事件被触发时，响应函数将会按照函数的绑定顺序执行
-     */
-    btn01.addEventListener("click",function() {
-        alert(1);
-    },false);
-
-    btn01.addEventListener("click",function() {
-        alert(2);
-    },false);
-
-    /*
-     * attachEvent() 在IE8中使用
-     * 参数：
-     * 1. 事件的字符串，要on
-     * 2. 回调函数
-     *
-     * 可以绑定多个处理函数，执行顺序和addEventListener()相反
-     */
-    btn01.attachEvent("onclick",function() {
-        alert(1);
-    });
-
-    btn01.attachEvent("onclick",function() {
-        alert(2);
-    });
-};
-```
 
 #### 事件的传播
 
@@ -713,25 +646,7 @@ bj.parentNode.removeChild(bj);
 bj.innerHTML = "昌平";
 ```
 
-### DOM操作CSS
 
-语法：元素.style.样式名 = 样式值
-
-```javascript
-/*
- * 如果CSS的样式名中含有-，需要将这种样式名修改为驼峰命名法
- * 去掉-，然后将-后的字母大写
- *
- * 通过style属性设置的样式都是内联样式，内联样式有较高的优先级
- * 所以通过JS修改的样式往往会立即显示
- *
- * 如果在样式中写了!important，则此时样式会有最高的优先级，
- * 即使通过JS也不能覆盖该样式，此时将会导致JS修改样式失效
- */
-box1.style.width = "300px";
-box1.style.height = "300px";
-box1.style.backgroundColor = "yellow";
-```
 
 #### 读取样式表
 
@@ -814,79 +729,6 @@ alert(box4.clientHeight);
 
 // 当满足scrollHeight - scrollTop == clientHeight，说明垂直滚动条滚动到底了
 // 当满足scrollWidth - scrollLeft == clientWidth，说明水平滚动条滚动到底
-```
-
-#### 类的操作
-
-```html
-<html>
-<head>
-    <meta charset="UTF-8">
-    <style type="text/css">
-        .b1{
-            width: 100px;
-            height: 100px;
-            background-color: red;
-        }
-
-        .b2{
-            height: 300px;
-            background-color: yellow;
-        }
-    </style>
-    <script type="text/javascript">
-        window.onload = function() {
-            var box = document.getElementById("box");
-            var btn01 = document.getElementById("btn01");
-
-            btn01.onclick = function() {
-                toggleClass(box,"b2");
-            };
-        };
-
-        /*
-         * 向元素中添加指定的class属性值
-         * - obj 要添加class属性的元素
-         * - cn 要添加的class值
-         */
-        function addClass(obj , cn) {
-            if (!hasClass(obj , cn)) {
-                // class属性来间接的修改样式
-                obj.className += " " + cn;
-            }
-        }
-
-        // 判断元素中是否含有指定的class属性，存在返回true，否则返回false
-        function hasClass(obj , cn){
-            var reg = new RegExp("\\b" + cn + "\\b");
-            return reg.test(obj.className);
-        }
-
-        // 删除一个元素中的指定的class属性
-        function removeClass(obj , cn){
-            var reg = new RegExp("\\b" + cn + "\\b");
-            obj.className = obj.className.replace(reg , "");
-        }
-
-        // toggleClass可以用来切换一个类
-        function toggleClass(obj , cn){
-            if (hasClass(obj , cn)) {
-                removeClass(obj , cn); // 如果元素中具有该类，则删除
-            } else {
-                addClass(obj , cn); // 如果元素中没有该类，则添加
-            }
-        }
-
-    </script>
-</head>
-<body>
-<button id="btn01">点击按钮以后修改box的样式</button>
-
-<br /><br />
-
-<div id="box" class="b1 b2"></div>
-</body>
-</html>
 ```
 
 ## BOM
