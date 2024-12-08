@@ -41,7 +41,7 @@
   * [DOM事件基础](js/b-dom/2-事件.md)
   * [节点操作](js/b-dom/3-节点.md)
   * [事件对象](js/b-dom/4-事件.md)
-  * [高级特性](js/b-dom/five)
+  * [高级特性](js/b-dom/5-高级.md)
 
 * 附录
   * [less](others/less)
