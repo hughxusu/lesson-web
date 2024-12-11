@@ -176,17 +176,48 @@ JS执行机制
 
 ### navigator对象
 
+`navigator`对象记录了浏览器自身相关信息。
 
+* 通过`userAgent`属性可以检测浏览器的版本及平台。
+
+```html
+<h1></h1>
+<script>
+  let h1 = document.querySelector('h1')
+  h1.innerText = navigator.userAgent
+</script>
+```
 
 ### histroy对象
 
+`history`对象与浏览器地址栏操作相对应，如前进、后退、历史记录等。
+
+* `back()`后退
+* `forward()`前进
+* `go(param)`跳转功能，`param`为跳转页数，1向前跳转一页，-1向后跳转一页。
+
+```html
+<button class="forward">前进</button>
+<button class="back">后退</button>
+<script>
+  let forward = document.querySelector('.forward')
+  let back = document.querySelector('.back')
+  forward.addEventListener('click', function () {
+    history.forward()
+  })
+  back.addEventListener('click', function () {
+    history.back()
+  })
+</script>
+```
+
 ## 本地存储
 
-随着互联网的快速发展，基于网页的应用越来越普遍，同时也变的越来越复杂，为了满足各种各样的需求，会经常性在本地存储大量的数据，HTML5规范提出了相关解决方案。
+随着互联网的快速发展，基于网页的应用越来越复杂，为了满足各种需求，经常会在本地存储大量的数据，HTML5规范提出了相关解决方案。
 
-* 数据存储在用户浏览器中
+* 数据存储在用户浏览器中。
 * 设置、读取方便、甚至页面刷新不丢失数据
-* 容量较大，sessionStorage和localStorage约 5M 左右
+* 容量较大，`sessionStorage`和`localStorage`约5M左右
 
 ### localStorage
 
