@@ -183,27 +183,7 @@ js引擎执行代码的基本流程：
 
 2. 定时器回调函数是在主线程执行的，js是单线程。
 
-### 事件循环模型
 
-<img src="https://pic4.zhimg.com/80/v2-64476c110e4efcd85df76dc49b510abb_1440w.jpg" style="zoom:45%;" />
-
-代码分类：
-
-  * 初始化执行代码（同步代码）：包含绑定dom事件监听，设置定时器，发送ajax请求的代码。
-  * 回调执行代码（异步代码）：处理回调逻辑
-
-js引擎执行代码的基本流程：初始化代码 => 回调代码
-
-模型的2个重要组成部分：
-
-  * 事件（定时器/DOM事件/Ajax）管理模块
-  * 回调队列
-
-模型的运转流程
-
-1. 执行初始化代码，将事件回调函数交给对应模块管理。
-2. 当事件发生时，管理模块会将回调函数及其数据添加到回调列队中。
-3. 只有当初始化代码执行完后（可能要一定时间），才会遍历读取回调队列中的回调函数执行。
 
 ### Web Workers
 
@@ -247,130 +227,6 @@ this.onmessage = function (event) {
 ```
 
 ## DOM
-
-
-
-
-
-#### 事件对象
-
-* 当事件的响应函数被触发时，浏览器每次都会将一个事件对象作为实参传递进响应函数。
-* 在事件对象中封装了当前事件相关的一切信息，如：鼠标的坐标 、按键信息、 鼠标滚动方向等
-
-```javascript
-window.onload = function(){
-    var areaDiv = document.getElementById("areaDiv");
-
-    // 会在鼠标在元素中移动时被触发
-    areaDiv.onmousemove = function(event){
-
-        // 在IE8及以下的浏览器中，是将事件对象作为window对象的属性保存的
-        event = event || window.event;
-
-        // clientX可以获取鼠标指针的水平坐标
-        var x = event.clientX;
-        // clientY可以获取鼠标指针的垂直坐标
-        var y = event.clientY;
-    };
-};
-```
-
-
-
-#### 事件的传播
-
-<img src="https://zh.javascript.info/article/bubbling-and-capturing/eventflow.svg" style="zoom:85%;" />
-
-将事件传播分成了三个阶段：
-
-1. 捕获阶段：在捕获阶段时从最外层的祖先元素，向目标元素进行事件的捕获，但是默认此时不会触发事件。
-2. 目标阶段：事件捕获到目标元素，捕获结束开始在目标元素上触发事件
-3. 冒泡阶段：事件从目标元素向他的祖先元素传递，依次触发祖先元素上的事件
-
-如果希望在捕获阶段就触发事件，可以将addEventListener()的第三个参数设置为true，一般情况下我们不会希望在捕获阶段触发事件，所以这个参数一般都是false
-
-```javascript
-window.onload = function(){
-    var box1 = document.getElementById("box1");
-    var box2 = document.getElementById("box2");
-
-    bind(box1,"click",function(){
-        alert("我是box1的响应函数")
-    });
-    bind(box2,"click",function(){
-        alert("我是box2的响应函数")
-    });
-};
-
-function bind(obj , eventStr , callback){
-    if(obj.addEventListener){
-        // this是绑定事件的对象，可以直接传递
-        obj.addEventListener(eventStr , callback , true); // 捕获阶段就触发事件
-    }else{
-
-        // this是window
-        obj.attachEvent("on"+eventStr , function(){
-            /*
-             * 在匿名函数中调用回调函数
-             * this由调用方式决定(callback.call(obj))
-             */
-            callback.call(obj);
-        });
-    }
-}
-```
-
-##### 事件冒泡
-
-* 冒泡就是事件的向上传导，当后代元素上的事件被触发时，其祖先元素的相同事件也会被触发
-* 在开发中大部分情况冒泡都是有用的，如果不希望发生事件冒泡可以通过事件对象来取消冒泡
-
-```javascript
-box.onmousemove = function(event) {
-  event.cancleBubble = true; // 通过event事件取消冒泡，只阻止当前层
-  
-  event.stopPropagation() // 取消事件冒泡，阻止所有层
-  event.preventDefault()	// 阻止默认事件
-}
-```
-
-##### 事件的委派
-
-* 指将事件统一绑定给元素的共同的祖先元素，这样当后代元素上的事件触发时，会一直冒泡到祖先元素从而通过祖先元素的响应函数来处理事件。
-* 事件委派是利用了冒泡，通过委派可以减少事件绑定的次数，提高程序的性能。
-
-```html
-<html>
-<head>
-    <meta charset="utf-8" />
-    <script type="text/javascript">
-        window.onload = function(){
-            var u1 = document.getElementById("u1");
-
-            // 为ul绑定一个单击响应函数，子元素li可以相应
-            u1.onclick = function(event){
-                event = event || window.event;
-                // 表示的触发事件的对象
-                if(event.target.className == "link"){
-                    alert("我是ul的单击响应函数");
-                }
-            };
-        };
-    </script>
-</head>
-<body>
-
-<ul id="u1" style="background-color: #bfa;">
-    <li>
-        <p>我是p元素</p>
-    </li>
-    <li><a href="javascript:;" class="link">超链接一</a></li>
-    <li><a href="javascript:;" class="link">超链接二</a></li>
-    <li><a href="javascript:;" class="link">超链接三</a></li>
-</ul>
-</body>
-</html>
-```
 
 #### 事件处理
 
@@ -546,38 +402,7 @@ window.onload = function() {
 
 ### DOM查询
 
-#### 基本方法
 
-获取元素节点对象，通过document对象调用 
-
-* `getElementById()`通过id属性获取一个元素节点对象 
-* `getElementsByTagName()`通过标签名获取一组元素节点对象
-* `getElementsByName()`通过name属性获取一组元素节点对象
-
-获取元素节点的子节点，通过具体的元素节点调用
-
-* `getElementsByTagName()`方法，返回当前节点的指定标签名后代节点 
-* `childNodes`属性，表示当前节点的所有子节点
-* `firstChild`属性，表示当前节点的第一个子节点
-* `lastChild`属性，表示当前节点的最后一个子节点
-
-获取父节点和兄弟节点，通过具体的节点调用
-
-* `parentNode`属性，表示当前节点的父节点
-* `previousSibling`属性，表示当前节点的前一个兄弟节点
-* `nextSibling`属性，表示当前节点的后一个兄弟节点
-
-元素节点的属性获取
-
-* 元素对象.属性名 
-  * `element.value`
-  * `element.id`
-  * `element.className`
-
-* 设置，元素对象.属性名=新的值 
-  * `element.value = “hello”`
-  * `element.id = “id01”` 
-  * `element.className = “newClass"`
 
 其他属性
 
@@ -605,48 +430,6 @@ var ps = and.previousSibling;
 var um = document.getElementById("username");
 var value = um.value
 ```
-
-#### 其他方法
-
-使用CSS选择器进行查询
-
-- `querySelector()`
-- `querySelectorAll()`
-
-这两个方法都是用document对象来调用，两个方法使用相同， 都是传递一个选择器字符串作为参数，方法会自动根据选择器 字符串去网页中查找元素。不同的地方是`querySelector()`只会返回找到的第一个元素，而`querySelectorAll()`会返回所有符合条件的元素。
-
-```javascript
-var div = document.querySelector(".box1 div");
-var box1 = document.querySelectorAll(".box1");
-```
-
-### DOM修改
-
-节点的修改
-
-* 创建节点：document.createElement(标签名)
-* x删除节点：父节点.removeChild(子节点)
-* 替换节点：父节点.replaceChild(新节点 , 旧节点)
-
-插入节点
-
-* 父节点.appendChild(子节点)
-* 父节点.insertBefore(新节点 , 旧节点)
-
-```javascript
-var li = document.createElement("li");
-var gzText = document.createTextNode("广州");
-
-li.appendChild(gzText);
-city.insertBefore(li , bj);
-city.replaceChild(li , bj);
-bj.parentNode.removeChild(bj);
-
-// 设置#bj内的HTML代码
-bj.innerHTML = "昌平";
-```
-
-
 
 #### 读取样式表
 
