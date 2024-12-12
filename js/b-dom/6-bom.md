@@ -221,9 +221,82 @@ JS执行机制
 
 ### localStorage
 
-1. 生命周期永久生效，除非手动删除 否则关闭页面也会存在
-2. 可以多窗口（页面）共享（同一浏览器可以共享）
-3. 以键值对的形式存储使用
+1. 生命周期永久生效，除非手动删除否则关闭页面也会存在。
+2. 可以多页面共享数据。
+3. 以键值对的形式存储使用。
 
-### sessionStorage
+存储数据：`localStorage.setItem(key, value)`，`key`数据名字，`value`保存数据值。获取数据：`localStorage.getItem(key)`，`key`数据名字。
+
+```html
+<style>
+  input, button {
+    padding: 4px;
+    font-size: 16px;
+  }
+
+  input {
+    width: 200px;
+  }
+</style>
+<input value="山中无历日，寒尽不知年">
+<button>save</button>
+<h1></h1>
+<script>
+  let btn = document.querySelector('button')
+  let h1 = document.querySelector('h1')
+  let input = document.querySelector('input')
+  btn.addEventListener('click', function () {
+    let msg = input.value
+    if (!msg) return
+    localStorage.setItem('msg', msg)
+    h1.innerHTML = msg
+  })
+  let msg = localStorage.getItem('msg')
+  if (msg) {
+    h1.innerHTML = msg
+  }
+</script>
+```
+
+### 引用数据类型的存储
+
+本地只能存储字符串，无法存储复杂数据类型。需要将复杂数据类型转换成JSON字符串，在存储到本地。
+
+`JSON.stringify(obj)`对象转换成json字符串，`obj`对象数据；`JSON.parse(str)`将json字符串转换成数据，`str`字符串数据。
+
+```html
+<style>
+  button {
+    font-size: 16px;
+    padding: 6px;
+  }
+</style>
+<button id="save">save item</button>
+<button id="button">load item</button>
+<h1></h1>
+<script>
+  let user = {
+    name: 'Tom',
+    age: 18,
+    isMale: true
+  }
+  JSON.stringify(user)
+
+  let saveBtn = document.querySelector('#save')
+  saveBtn.addEventListener('click', function () {
+    localStorage.setItem('user', JSON.stringify(user))
+  })
+
+  let loadBtn = document.querySelector('#button')
+  let h1 = document.querySelector('h1')
+  loadBtn.addEventListener('click', function () {
+    let user = JSON.parse(localStorage.getItem('user'))
+    if (!user) return
+    console.log(user)
+    h1.innerText = `user name is ${user.name}, age is ${user.age}, isMale is ${user.isMale}`
+  })
+</script>
+```
+
+
 
