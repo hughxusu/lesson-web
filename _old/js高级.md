@@ -118,73 +118,6 @@ showDelay('atguigu', 2000)
 
 ## 线程机制与事件机制
 
-### 进程与线程
-
-进程：程序的一次执行，它占有一片独有的内存空间
-
-线程： CPU的基本调度单位，是程序执行的一个完整流程
-
-进程与线程：
-
-* 一个进程中一般至少有一个运行的线程：主线程。
-* 一个进程中也可以同时运行多个线程，我们会说程序是多线程运行的。
-* 一个进程内的数据可以供其中的多个线程直接共享。
-* 多个进程之间的数据是不能直接共享的。
-
-浏览器运行模式
-
-* 单进程：firefox、老版IE
-* 多进程：chrome、新版IE
-
-5. 浏览器都是多线程运行
-
-### 浏览器内核
-
-浏览器内核：支持浏览器运行的最核心的程序。
-
-不同的浏览器内核：
-
-* Chrome、Safari：webkit
-* firefox：Gecko
-* IE：Trident
-* 360、搜狗等国内浏览器：Trident + webkit
-
-内核由很多模块组成：
-
-* 主线程模块：
-  * js引擎模块：负责js的编译和运行
-  * html/css文档解析模块：负责页面文本的解析
-  * dom/css模块：负责dom/css在内存中的相关处理
-  * 布局和渲染模块：负责页面的布局和效果的绘制
-* 分线程模块：
-  * 定时器模块：负责定时器的管理
-  * 网络请求模块：负责服务器请求(常规/Ajax)
-  * 事件响应模块：负责事件的管理
-
-#### js执行模式
-
-JavaScript作为浏览器脚本语言，主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。JavaScript代码的分类：
-
-  * 初始化代码
-  * 回调代码
-
-js引擎执行代码的基本流程：
-
-1. 先执行初始化代码：包含一些特别的代码、回调函数（异步执行）
-   * 设置定时器
-   * 绑定事件监听
-   * 发送ajax请求
-
-2. 后面在某个时刻才会执行回调代码
-
-#### 定时器
-
-1. 定时器并不能保证真正定时执行，一般会有一点延迟（可接受），也有可能延迟很长时间（不能接受）
-
-2. 定时器回调函数是在主线程执行的，js是单线程。
-
-
-
 ### Web Workers
 
 H5规范提供了js分线程的实现，Web Workers
@@ -228,181 +161,40 @@ this.onmessage = function (event) {
 
 ## DOM
 
-#### 事件处理
-
-##### 拖拽
-
-拖拽的流程：
-
-1. 当鼠标在被拖拽元素上按下时，开始拖拽 onmousedown
-2. 当鼠标移动时被拖拽元素跟随鼠标移动 onmousemove
-3. 当鼠标松开时，被拖拽元素固定在当前位置 onmouseup
-
-```html
-<html>
-<head>
-    <meta charset="UTF-8">
-    <style type="text/css">
-        #box1{
-            width: 100px;
-            height: 100px;
-            background-color: red;
-            position: absolute;
-        }
-    </style>
-    <script type="text/javascript">
-        window.onload = function() {
-            var box1 = document.getElementById("box1");
-            drag(box1);
-        };
-
-        function drag(obj) {
-            // 为拖动对象绑定鼠标点击
-            obj.onmousedown = function(event) {
-                // IE支持
-                obj.setCapture && obj.setCapture();
-                event = event || window.event;
-
-                // 鼠标点击相对div的偏移量
-                var ol = event.clientX - obj.offsetLeft;
-                var ot = event.clientY - obj.offsetTop;
-
-                // 将onmousemove事件绑定到document
-                document.onmousemove = function(event){
-                    event = event || window.event;
-                    var left = event.clientX - ol;
-                    var top = event.clientY - ot;
-
-                    obj.style.left = left+"px";
-                    obj.style.top = top+"px";
-                };
-
-                // 为document绑定一个鼠标松开事件
-                document.onmouseup = function(){
-                    // 鼠标松开时，取消document的onmousemove事件和onmouseup事件
-                    document.onmousemove = null;
-                    document.onmouseup = null;
-                    // 当鼠标松开时，取消对事件的捕获
-                    obj.releaseCapture && obj.releaseCapture();
-                };
-
-                // return false来取消默认行为，IE8无效
-                return false;
-            };
-        }
-    </script>
-</head>
-<body>
-我是一段文字
-
-<div id="box1"></div>
-</body>
-</html>
-```
-
-##### 滚轮事件
-
-```html
-<html>
-<head>
-    <meta charset="UTF-8">
-    <style type="text/css">
-        #box1{
-            width: 100px;
-            height: 100px;
-            background-color: red;
-        }
-    </style>
-    <script type="text/javascript">
-        window.onload = function() {
-            var box1 = document.getElementById("box1");
-
-            /*
-             * 绑定一个鼠标滚轮滚动的事件
-             * onmousewheel鼠标滚轮滚动的事件，会在滚轮滚动时触发
-             *
-             * 在火狐中需要使用DOMMouseScroll来绑定滚动事件
-             * 注意该事件需要通过addEventListener()函数来绑定
-             */
-            box1.onmousewheel = function(event) {
-                event = event || window.event;
-
-                // 判断鼠标滚轮滚动的方向event.detail火狐支持
-                if(event.wheelDelta > 0 || event.detail < 0) {
-                    box1.style.height = box1.clientHeight - 10 + "px";ß
-                } else {
-                    box1.style.height = box1.clientHeight + 10 + "px";
-                }
-
-                // IE8支持
-                event.preventDefault && event.preventDefault();
-
-                // 取消默认行为
-                return false;
-            };
-
-            // 为火狐绑定滚轮事件
-            bind(box1, "DOMMouseScroll", box1.onmousewheel);
-        };
-
-        function bind(obj, eventStr, callback) {
-            if (obj.addEventListener) {
-                // 大部分浏览器兼容的方式
-                obj.addEventListener(eventStr, callback , false);
-            } else {
-                // IE8及以下
-                obj.attachEvent("on"+eventStr, function() {
-                    // 在匿名函数中调用回调函数
-                    callback.call(obj);
-                });
-            }
-        }
-    </script>
-</head>
-<body style="height: 2000px;">
-
-<div id="box1"></div>
-</body>
-</html>
-```
-
-##### 键盘事件
-
-键盘事件一般都会绑定给一些可以获取到焦点的对象或者是document
-
-```javascript
-window.onload = function() {
-    /*
-     * 键盘事件：
-     * 	onkeydown 按键被按下
-     *  - onkeydown按键不松，事件会一直触发
-     * 	- 第一次和第二次之间会间隔稍微长一点，其他的会非常的快
-     *
-     * 	onkeyup
-     * 	- 按键被松开
-     */
-    document.onkeydown = function(event) {
-        event = event || window.event;
-
-        /*
-         * altKey、ctrlKey、shiftKey
-         * 这个三个用来判断alt、ctrl、shift是否被按下，
-         * 按下则返回true，否则返回false
-         */
-        if(event.keyCode === 89 && event.ctrlKey){
-            console.log("ctrl和y都被按下了");
-        }
-    };
-
-    document.onkeyup = function(){
-        console.log("按键松开了");
-    };
-};
-```
-
 ### DOM查询
 
+#### 基本方法
 
+获取元素节点对象，通过document对象调用 
+
+* `getElementById()`通过id属性获取一个元素节点对象 
+* `getElementsByTagName()`通过标签名获取一组元素节点对象
+* `getElementsByName()`通过name属性获取一组元素节点对象
+
+获取元素节点的子节点，通过具体的元素节点调用
+
+* `getElementsByTagName()`方法，返回当前节点的指定标签名后代节点 
+* `childNodes`属性，表示当前节点的所有子节点
+* `firstChild`属性，表示当前节点的第一个子节点
+* `lastChild`属性，表示当前节点的最后一个子节点
+
+获取父节点和兄弟节点，通过具体的节点调用
+
+* `parentNode`属性，表示当前节点的父节点
+* `previousSibling`属性，表示当前节点的前一个兄弟节点
+* `nextSibling`属性，表示当前节点的后一个兄弟节点
+
+元素节点的属性获取
+
+* 元素对象.属性名 
+  * `element.value`
+  * `element.id`
+  * `element.className`
+
+* 设置，元素对象.属性名=新的值 
+  * `element.value = “hello”`
+  * `element.id = “id01”` 
+  * `element.className = “newClass"`
 
 其他属性
 
@@ -429,6 +221,46 @@ var ps = and.previousSibling;
 
 var um = document.getElementById("username");
 var value = um.value
+```
+
+#### 其他方法
+
+使用CSS选择器进行查询
+
+- `querySelector()`
+- `querySelectorAll()`
+
+这两个方法都是用document对象来调用，两个方法使用相同， 都是传递一个选择器字符串作为参数，方法会自动根据选择器 字符串去网页中查找元素。不同的地方是`querySelector()`只会返回找到的第一个元素，而`querySelectorAll()`会返回所有符合条件的元素。
+
+```javascript
+var div = document.querySelector(".box1 div");
+var box1 = document.querySelectorAll(".box1");
+```
+
+### DOM修改
+
+节点的修改
+
+* 创建节点：document.createElement(标签名)
+* x删除节点：父节点.removeChild(子节点)
+* 替换节点：父节点.replaceChild(新节点 , 旧节点)
+
+插入节点
+
+* 父节点.appendChild(子节点)
+* 父节点.insertBefore(新节点 , 旧节点)
+
+```javascript
+var li = document.createElement("li");
+var gzText = document.createTextNode("广州");
+
+li.appendChild(gzText);
+city.insertBefore(li , bj);
+city.replaceChild(li , bj);
+bj.parentNode.removeChild(bj);
+
+// 设置#bj内的HTML代码
+bj.innerHTML = "昌平";
 ```
 
 #### 读取样式表
@@ -512,133 +344,6 @@ alert(box4.clientHeight);
 
 // 当满足scrollHeight - scrollTop == clientHeight，说明垂直滚动条滚动到底了
 // 当满足scrollWidth - scrollLeft == clientWidth，说明水平滚动条滚动到底
-```
-
-## BOM
-
-BOM浏览器对象模型，在BOM中提供了一组对象，用来完成对浏览器的操作。
-
-1. Window代表的是整个浏览器的窗口，同时window也是网页中的全局对象。
-2. Navigator代表的当前浏览器的信息，通过该对象可以来识别不同的浏览器。
-3. Location代表当前浏览器的地址栏信息，通过Location可以获取地址栏信息，或者操作浏览器跳转页面。
-4. History代表浏览器的历史记录，可以通过该对象来操作浏览器的历史记录。由于隐私原因，该对象不能获取到具体的历史记录，只能操作浏览器向前或向后翻页，而且该操作只在当次访问时有效。
-5. Screen代表用户的屏幕的信息，通过该对象可以获取到用户的显示器的相关的信息。
-
-这些BOM对象在浏览器中都是作为window对象的属性保存的，可以通过window对象来使用，也可以直接使用。
-
-```javascript
-console.log(window.navigator);
-console.log(navigator);
-console.log(location);
-console.log(history);
-```
-
-### Navigator
-
-代表的当前浏览器的信息，通过该对象可以来识别不同的浏览器。一般我们只会使用userAgent来判断浏览器的信息，这个字符串中包含有用来描述浏览器信息的内容。由于历史原因，Navigato对象中的其他大部分属性都已经不能辅助识别浏览器。
-
-```javascript
-var ua = navigator.userAgent;
-console.log(ua);
-
-if(/firefox/i.test(ua)) { // 正则表达式
-    alert("你是火狐！！！");
-} else if (/chrome/i.test(ua)) {
-    alert("你是Chrome");
-} else if (/msie/i.test(ua)) {
-    alert("你是IE浏览器~~~");
-} else if ("ActiveXObject" in window) {
-    alert("你是IE11，枪毙了你~~~");
-}
-```
-
-### History
-
-可以用来操作浏览器向前或向后翻页
-
-```javascript
-// 可以获取当前访问的链接数量
-alert(history.length);
-
-// 回退到上一个页面，作用和浏览器的回退按钮一样
-history.back();
-
-// 跳转下一个页面，作用和浏览器的前进按钮一样
-history.forward();
-
-/*
- * go() 可以用来跳转到指定的页面
- * 1:表示向前跳转一个页面 相当于forward()
- * 2:表示向前跳转两个页面
- * -1:表示向后跳转一个页面
- * -2:表示向后跳转两个页面
- */
-history.go(-2);
-```
-
-### Location
-
-封装了浏览器的地址栏的信息
-
-```javascript
-// 自动跳转到该路径，并且会生成相应的历史记录
-location = "http://www.baidu.com";
-
-// 跳转页面，作用和直接修改location一样
-location.assign("http://www.baidu.com");
-
-/*
- * 用于重新加载当前页面，作用和刷新按钮一样
- * 如果在方法中传递一个true，会强制清空缓存刷新页面
- */
-location.reload(true);
-
-/*
- * 使用一个新的页面替换当前页面，调用完毕也会跳转页面
- * 不会生成历史记录，不能使用回退按钮回退
- */
-location.replace("01.BOM.html");
-```
-
-### Window
-
-#### 定时调用
-
-```javascript
-window.onload = function() {
-    var count = document.getElementById("count");
-
-    /*
-     * setInterval() 定时器
-     * 参数：
-     * 1. 回调函数，该函数会每隔一段时间被调用一次
-     * 2. 每次调用间隔的时间，单位是毫秒
-     *
-     * 返回值：
-     * 返回一个Number类型的数据，作为定时器的唯一标识
-     */
-    var num = 1;
-    var timer = setInterval(function() {
-        count.innerHTML = num++;
-        if(num == 11){
-            // 关闭定时器
-            clearInterval(timer);
-        }
-
-    },1000);
-};
-```
-
-#### 延时调用
-
-```javascript
-// 延时调用
-var timer = setTimeout(function(){
-    console.log(num++);
-},3000);
-
-// 使用clearTimeout()来关闭一个延时调用
-clearTimeout(timer);
 ```
 
 ## Json对象
