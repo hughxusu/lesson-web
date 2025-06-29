@@ -19,7 +19,7 @@
   * [定位](/docs/c-css/10-定位)
   * [装饰页面](/docs/c-css/11-装饰)
   * [2D变换](/docs/c-css/12-2D)
-  * [3D变换](c-css/13-3D)
+  * [3D变换](/docs/c-css/13-3D)
   * [移动端布局](/docs/c-css/14-移动)
   * [移动端适配](/docs/c-css/15-适配)
   * [响应布局](/docs/c-css/16-响应)
@@ -45,5 +45,5 @@
   * [BOM](/docs/js/b-dom/6-bom.md)
 
 * 附录
-  * [less](others/less)
+  * [less](/docs/others/less)
 

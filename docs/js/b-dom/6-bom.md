@@ -1,6 +1,6 @@
 # BOM
 
-<img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_images/d-js/bom.png" style="zoom:80%;" />
+<img src="https://raw.githubusercontent.com/hughxusu/lesson-web/develop/images/d-js/bom.png" style="zoom:80%;" />
 
 BOM（Browser Object Model）是浏览器对象模型。
 
@@ -73,7 +73,7 @@ JS执行机制
 2.  异步任务放入任务队列中。
 3.  一旦执行栈中的所有同步任务执行完毕，系统就会按次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，开始执行。
 
-<img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_images/d-js/1633593121990_图片1.png" style="zoom:75%;" />
+<img src="https://raw.githubusercontent.com/hughxusu/lesson-web/develop/images/d-js/1633593121990_图片1.png" style="zoom:75%;" />
 
 ```html
 <div class="root"></div>
