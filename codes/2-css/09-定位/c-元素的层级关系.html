@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+        }
+
+        .up {
+            position: absolute;
+            left: 20px;
+            top: 50px;
+            background-color: pink;
+            z-index: 1;
+        }
+
+        .down {
+            position: absolute;
+            left: 50px;
+            top: 100px;
+            background-color: skyblue;
+        }
+
+        /* .up {
+            float: left;
+            background-color: pink;
+            z-index: 1000;
+        }
+
+        .down {
+            position: absolute;
+            left: 50px;
+            top: 100px;
+            background-color: skyblue;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="up">up</div>
+    <div class="down">down</div>
+    <div class="two">two</div>
+</body>
+</html>
