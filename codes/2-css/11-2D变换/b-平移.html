@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 500px;
+            height: 300px;
+            margin: 100px auto;
+            border: 1px solid #000;
+        }
+
+        .inner {
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            transition: all 0.5s;
+        }
+
+        .wrapper:hover .inner {
+            transform: translate(100px, 50px);
+            /* transform: translate(100%, 50%); */
+            /* transform: translate(-100%, 50%); */
+            /* transform: translateY(100px); */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="inner"></div>
+    </div>
+
+</body>
+
+</html>

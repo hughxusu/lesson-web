@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .box {
+            width: 350px;
+            height: 247px;
+            background-color: skyblue;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box .txt {
+            position: absolute;
+            left: 0;
+            bottom: -50px;
+            width: 350px;
+            height: auto;
+            padding: 20px 30px;
+            z-index: 1;
+            color: #fff;
+            transition: transform .5s;
+        }
+
+        .box .txt h4 {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 2em;
+            color: #fff;
+        }
+
+        .box .txt h5 {
+            margin-bottom: 40px;
+            font-size: 18px;
+            line-height: 1.5em;
+            color: #fff;
+        }
+
+        .box .txt p {
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .box .mask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 350px;
+            height: 247px;
+            background-image: linear-gradient(transparent, rgba(0, 0, 0, .6));
+            opacity: 0;
+            transition: all .5s;
+        }
+
+        .box .pic img {
+            transition: all .5s;
+        }
+
+        .box:hover .pic img {
+            transform: scale(1.2);
+        }
+
+        .box:hover .mask {
+            opacity: 1;
+        }
+
+        .box:hover .txt {
+            transform: translateY(-50px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <a href="#">
+            <div class="pic">
+                <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/product.jpeg">
+            </div>
+            <div class="txt">
+                <h4>产品</h4>
+                <h5>OceanStor Pacific 海量存储斩获2021 Interop金奖</h5>
+                <p>
+                    <span>了解更多</span>
+                </p>
+            </div>
+            <div class="mask"></div>
+        </a>
+    </div>
+</body>
+
+</html>
