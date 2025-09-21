@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            width: 400px;
+        }
+
+        .box {
+            width: 800px;
+            height: 300px;
+            border: 5px solid #ccc;
+            margin: 100px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .box ul {
+            width: 3600px;
+            animation: move 15s infinite linear;
+        }
+
+        .box li {
+            float: left;
+        }
+
+        @keyframes move {
+            to {
+                transform: translateX(-2800px);
+            }
+        }
+
+        .box:hover ul {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz1.jpg" alt="" /></li>
+            <li><img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz2.jpg" alt="" /></li>
+            <li><img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz3.jpg" alt="" /></li>
+            <li><img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz4.jpg" alt="" /></li>
+            <li><img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz5.jpg" alt="" /></li>
+            <li><img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz6.jpg" alt="" /></li>
+            <li><img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz7.jpg" alt="" /></li>
+            <li><img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz1.jpg" alt="" /></li>
+            <li><img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz2.jpg" alt="" /></li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 140px;
+            height: 140px;
+            border: 1px solid #000;
+            background-image: url(https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/run.png);
+            animation: move 1s steps(12) infinite;
+            /* animation: move 1s steps(12) infinite, run 1s forwards; */
+        }
+
+        @keyframes move {
+            from { background-position: 0 0; }
+            to { background-position: -1680px 0; }
+
+            /* from { transform: translateX(0); }
+            to { transform: translateX(800px); } */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            perspective: 1000px;
+        }
+
+        img {
+            width: 300px;
+            transition: all .5s;
+        }
+
+        .box img:hover {
+            transform: rotateZ(360deg);
+            /* transform: rotateX(60deg); */
+            /* transform: rotateY(-90deg); */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/develop/images/material/bg.png">
+    </div>
+</body>
+
+</html>
