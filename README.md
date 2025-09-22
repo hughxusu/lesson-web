@@ -4,6 +4,8 @@
 
 **[代码仓库](https://github.com/hughxusu/lesson-web)**
 
+[![Cloud Studio Template](https://cs-res.codehub.cn/common/assets/icon-badge.svg)](https://cloudstudio.net/courses/28044046978732032)
+
 ## 课程目标
 
 了解前端开发的主要流程和主流技术，学习前端开发的基本知识。
