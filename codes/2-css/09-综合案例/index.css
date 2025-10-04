@@ -1,0 +1,391 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.content {
+    width: 1920px;
+    margin: 0 auto;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: table;
+}
+
+.clearfix::after { 
+  clear: both;
+}
+
+.header {
+    background-color: #22201f;
+}
+
+.bar {
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #fff;
+}
+
+.header .logo {
+    float: left;
+    margin-left: 121px;
+    margin-top: 33px;
+}
+
+.header .nav {
+    float: left;
+    margin-left: 480px;
+    margin-top: 39px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.header .nav li {
+    float: left;
+    margin-left: 54px;
+}
+
+.header .bar button {
+    float: right;
+    margin-right: 237px;
+    margin-top: 20px;
+    width: 162px;
+    height: 60px;
+    background-color: #22201f;
+    color: #fff;
+    font-size: 18px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+}
+
+.header .hero {
+    width: 100%;
+    height: 1199px;
+    background-color: #22201f;
+    margin: 0 auto;
+}
+
+.header .hero h1 {
+    float: left;
+    margin-top: 145px;
+    margin-left: 144px;
+    height: 246px;
+    width: 720px;
+    font-size: 120px;
+    line-height: 120px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.header .hero h2 {
+    float: right;
+    margin-top: 140px;
+    margin-right: 188px;
+    width: 640px;
+    font-size: 22px;
+    line-height: 36px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.header .hero button {
+    float: left;
+    clear: both;
+    margin-top: 211px;
+    margin-left: 140px;
+    width: 162px;
+    height: 60px;
+    background-color: #ffa400;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+}
+
+.header .hero .one {
+    float: right;
+    clear: right;
+    margin-top: -30px;
+    margin-right: 140px;
+}
+
+.header .hero .two {
+    float: left;
+    clear: left;
+    margin-top: 86px;
+    margin-left: 140px;
+}
+
+.header .hero .info {
+    float: right;
+    clear: right;
+    margin-top: 67px;
+    margin-right: 168px;
+}
+
+.header .hero .rating {
+    float: right;
+    clear: right;
+    color: #fff;
+}
+
+.header .hero .rating li { 
+    float: left;
+    margin-left: 92px;
+    margin-top: 12px;
+}
+
+.header .hero .rating h3 {
+    font-size: 56px;
+    font-weight: normal;
+}
+
+.header .hero .rating p {
+    font-size: 18px;
+    font-weight: normal;
+    color: #7b7b7b;
+}
+
+.header .hero .scroll {
+    float: right;
+    margin-right: 162px;
+}
+
+.page {
+    padding: 303px 140px 200px;
+    box-sizing: border-box;
+}
+
+.page .title-1 h2 {
+    float: left;
+    font-size: 100px;
+    font-weight: normal;
+    line-height: 120px;
+    width: 720px;
+}
+
+.page .title-1 p {
+    float: right;
+    width: 500px;
+    font-size: 22px;
+    line-height: 36px;
+    margin: 14px 0 22px 0;
+}
+
+.page .explain {
+    margin: 209px 0 311px 0;
+}
+
+.page .explain ul {
+    float: left;
+}
+
+.page .explain ul li {
+    width: 758px;
+    height: 147px;
+    border-bottom: 1px solid #000;
+    margin-top: 62px;
+}
+
+.page .explain ul li:first-child {
+    margin-top: 0;
+}
+
+.page .explain ul li .box {
+    float: left;
+}
+
+.page .explain ul li .box h2 {
+    font-size: 44px;
+    line-height: 44px;
+    font-weight: normal;
+}
+
+.page .explain ul li .box h3 {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: normal;
+    margin-top: 19px;
+}
+
+.page .explain ul li p {
+    float: right;
+    margin-right: 10px;
+    font-size: 20px;
+    width: 360px;
+}
+
+.page .explain img {
+    float: right;
+}
+
+.page .title-2 h2 {
+    float: left;
+    font-size: 100px;
+    font-weight: normal;
+    line-height: 120px;
+}
+
+.page .title-2 p {
+    float: right;
+    width: 500px;
+    font-size: 22px;
+    line-height: 36px;
+    margin: 14px 0 12px 0;
+}
+
+.page .project {
+    margin-top: 162px;
+}
+
+.page .project li {
+    margin-top: 40px;
+}
+
+.page .project li .box h3 {
+    float: left;
+    font-size: 44px;
+    line-height: 44px;
+    font-weight: normal;
+    margin-top: 86px;
+}
+
+.page .project li .box p {
+    float: left;
+    clear: left;
+    width: 200px;
+    font-size: 22px;
+    line-height: 36px;
+    margin-top: 22px;
+    width: 380px;
+}
+
+.page .project   .box img {
+    float: left;
+    clear: left;
+    margin-top: 240px;
+}
+
+.page .project li:nth-child(2n+1) img {
+    float: right;
+}
+
+.page .project li:nth-child(2n+1) .box {
+    float: left;
+}
+
+.page .project li:nth-child(2n+1) .box img {
+    margin-right: 140px;
+}
+
+.page .project li:nth-child(2n) img {
+    float: left;
+}
+
+.page .project li:nth-child(2n) .box {
+    float: right;
+}
+
+.page .project li:nth-child(2n) .box img {
+    margin-left: 40px;
+}
+
+.bottom {
+    background-color: #22201f;
+    padding: 218px 140px 0;
+    box-sizing: border-box;
+}
+
+.bottom .footer {
+    border-top: 1px solid #fff;
+    padding: 48px 0 55px;
+}
+
+.bottom .footer li {
+    float: left;
+    color: #fff;
+    margin-left: 435px;
+}
+
+.bottom .footer li:first-child {
+    margin-left: 40px;
+}
+
+.bottom .up .left {
+    float: left;
+}
+
+.bottom .up .left h2 {
+    font-size: 136px;
+    line-height: 150px;
+    font-weight: normal;
+    color: #fff;
+    width: 768px;
+}
+
+.bottom .up .left h2:last-child {
+    text-align: right;
+}
+
+.bottom .up .right {
+    float: right;
+    margin-top: 157px;
+    color: #fff;
+    font-size: 22px;
+    line-height: 36px;
+    width: 606px;
+}
+
+.bottom .down {
+    margin: 194px 0 186px;
+}
+
+.bottom .down li {
+    float: left;
+}
+
+.bottom .down li dl {
+    color: #fff;
+    font-size: 22px;
+}
+
+.bottom .down li dl dt {
+    font-size: 30px;
+    margin-bottom: 38px;
+}
+
+.bottom .down li dl dd {
+    margin-bottom: 40px;
+}
+
+.bottom .down li dl dd:last-child {
+    margin-bottom: 0;
+}
+
+.bottom .down li:nth-child(2) {
+    margin-left: 235px;
+}
+
+.bottom .down li:nth-child(3) {
+    margin-left: 180px;
+}
+
+.bottom .down li:nth-child(4) {
+    margin-left: 244px;
+}
+
+
+
+
+
+
+
+
+
+
