@@ -14,16 +14,20 @@
         .bar {
             display: flex;
             width: 100%;
+            height: 100px;
             box-sizing: border-box;
             border: 1px solid #000;
-            /* justify-content: space-between; */
+            align-items: center;
+            justify-content: space-between;
         }
 
         .bar div {
-            width: 100px;
-            height: 100px;
             background-color: pink;
         }
+
+        /* .bar div:nth-child(2) {
+            align-self: stretch;
+        } */
 
         .page {
             width: 100%;

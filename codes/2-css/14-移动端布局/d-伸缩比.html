@@ -16,13 +16,28 @@
             width: 100%;
             box-sizing: border-box;
             border: 1px solid #000;
-            /* justify-content: space-between; */
+            justify-content: space-between;
         }
 
         .bar div {
             width: 100px;
             height: 100px;
             background-color: pink;
+        }
+
+        .bar div:nth-child(1) {
+            width: 100px;
+            background-color: red;
+        }
+
+        .bar div:nth-child(2) {
+            flex: 4;
+            background-color: blue;
+        }
+
+        .bar div:nth-child(3) {
+            flex: 1;
+            background-color: green;
         }
 
         .page {
