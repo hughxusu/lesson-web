@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        body {
+            font-family: Helvetica Neue, Tahoma, Arial, PingFangSC-Regular, Hiragino Sans GB, Microsoft Yahei, sans-serif;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        img {
+            vertical-align: middle;
+            width: 100%;
+            height: 100%;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .ellipsis-2 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .header {
+            width: 100%;
+            height: 22.40vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background-color: #fff;
+        }
+
+        .header .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 11.73vw;
+            width: 100%;
+            padding-left: 4.80vw;
+            padding-right: 3.20vw;
+        }
+
+        .header .top .left .iconfont {
+            color: #f69;
+            font-size: 7.47vw;
+        }
+
+        .header .top .right {
+            display: flex;
+        }
+
+        .header .top .right .iconfont {
+            font-size: 5.87vw;
+            color: #ccc;
+        }
+
+        .header .top .right .login {
+            width: 6.40vw;
+            height: 6.40vw;
+            margin-left: 6.40vw;
+        }
+
+        .header .top .right .download {
+            width: 19.20vw;
+            height: 6.40vw;
+            margin-left: 6.40vw;
+        }
+
+        .header .bottom {
+            height: 10.67vw;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .bottom .more a {
+            display: block;
+            width: 10.67vw;
+            height: 10.67vw;
+            text-align: center;
+            line-height: 10.67vw;
+        }
+
+        .header .bottom .more .iconfont {
+            font-size: 5.87vw;
+            color: #ccc;
+        }
+
+        .header .bottom .tab ul {
+            display: flex;
+        }
+
+        .header .bottom .tab ul li {
+            padding: 0 4.27vw;
+        }
+
+        .header .bottom .tab ul li a {
+            display: block;
+            text-align: center;
+            font-size: 3.73vw;
+            line-height: 10.13vw;
+            height: 10.13vw;
+        }
+
+        .header .bottom .tab ul li a.current {
+            color: #f69;
+            border-bottom: 2px solid #f69;
+        }
+
+        .video_content {
+            padding: 22.40vw 1.33vw 0;
+            font-size: 5.87vw;
+        }
+
+        .video_content .video_list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .video_content .video_list a {
+            display: block;
+            width: 50%;
+            padding: 2.13vw 1.33vw;
+            font-size: 3.20vw;
+        }
+
+        .video_content .video_list a .txt {
+            margin-top: 1.33vw;
+        }
+
+        .video_content .video_list a .pic {
+            position: relative;
+        }
+
+        .video_content .video_list a .pic .count {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 2.13vw;
+            width: 100%;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+        }
+
+        .video_content .video_list a .pic .count i {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="top">
+            <div class="left">
+                <a href="#">
+                    <i class="iconfont Navbar_logo"></i>
+                </a>
+            </div>
+            <div class="right">
+                <a href="#">
+                    <i class="iconfont ic_search_tab"></i>
+                </a>
+                <a href="#" class="login">
+                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_src/material/bli/images/login.png"
+                        alt="">
+                </a>
+                <a href="#" class="download">
+                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_src/material/bli/images/download.png"
+                        alt="">
+                </a>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="tab">
+                <ul>
+                    <li>
+                        <a href="#" class="current">首页</a>
+                    </li>
+                    <li>
+                        <a href="#">动画</a>
+                    </li>
+                    <li>
+                        <a href="#">番剧</a>
+                    </li>
+                    <li>
+                        <a href="#">国创</a>
+                    </li>
+                    <li>
+                        <a href="#">音乐</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="more">
+                <a href="#">
+                    <i class="iconfont general_pulldown_s"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="video_content">
+        <div class="video_list">
+            <a href="#">
+                <div class="pic">
+                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_src/material/bli/images/1.jpg"
+                        alt="">
+                    <div class="count">
+                        <p>
+                            <i class="iconfont icon_fenqudaohang_paihangbang"></i>
+                            <span>132</span>万
+                        </p>
+                        <p>
+                            <i class="iconfont icon_shipin_danmushu"></i>
+                            <span>2.4</span>万
+                        </p>
+                    </div>
+                </div>
+                <div class="txt ellipsis-2">
+                    你活着补刀就是对我最大的侮辱，韩服最强王者组单杀集锦#19
+                </div>
+            </a>
+            <a href="#">
+                <div class="pic">
+                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_src/material/bli/images/1.jpg"
+                        alt="">
+                    <div class="count">
+                        <p>
+                            <i class="iconfont icon_fenqudaohang_paihangbang"></i>
+                            <span>132</span>万
+                        </p>
+                        <p>
+                            <i class="iconfont icon_shipin_danmushu"></i>
+                            <span>2.4</span>万
+                        </p>
+                    </div>
+                </div>
+                <div class="txt ellipsis-2">
+                    你活着补刀就是对我最大的侮辱，韩服最强王者组单杀集锦#19
+                </div>
+            </a>
+            <a href="#">
+                <div class="pic">
+                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_src/material/bli/images/1.jpg"
+                        alt="">
+                    <div class="count">
+                        <p>
+                            <i class="iconfont icon_fenqudaohang_paihangbang"></i>
+                            <span>132</span>万
+                        </p>
+                        <p>
+                            <i class="iconfont icon_shipin_danmushu"></i>
+                            <span>2.4</span>万
+                        </p>
+                    </div>
+                </div>
+                <div class="txt ellipsis-2">
+                    你活着补刀就是对我最大的侮辱，韩服最强王者组单杀集锦#19
+                </div>
+            </a>
+            <a href="#">
+                <div class="pic">
+                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_src/material/bli/images/1.jpg"
+                        alt="">
+                    <div class="count">
+                        <p>
+                            <i class="iconfont icon_fenqudaohang_paihangbang"></i>
+                            <span>132</span>万
+                        </p>
+                        <p>
+                            <i class="iconfont icon_shipin_danmushu"></i>
+                            <span>2.4</span>万
+                        </p>
+                    </div>
+                </div>
+                <div class="txt ellipsis-2">
+                    你活着补刀就是对我最大的侮辱，韩服最强王者组单杀集锦#19
+                </div>
+            </a>
+            <a href="#">
+                <div class="pic">
+                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_src/material/bli/images/1.jpg"
+                        alt="">
+                    <div class="count">
+                        <p>
+                            <i class="iconfont icon_fenqudaohang_paihangbang"></i>
+                            <span>132</span>万
+                        </p>
+                        <p>
+                            <i class="iconfont icon_shipin_danmushu"></i>
+                            <span>2.4</span>万
+                        </p>
+                    </div>
+                </div>
+                <div class="txt ellipsis-2">
+                    你活着补刀就是对我最大的侮辱，韩服最强王者组单杀集锦#19
+                </div>
+            </a>
+            <a href="#">
+                <div class="pic">
+                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_src/material/bli/images/1.jpg"
+                        alt="">
+                    <div class="count">
+                        <p>
+                            <i class="iconfont icon_fenqudaohang_paihangbang"></i>
+                            <span>132</span>万
+                        </p>
+                        <p>
+                            <i class="iconfont icon_shipin_danmushu"></i>
+                            <span>2.4</span>万
+                        </p>
+                    </div>
+                </div>
+                <div class="txt ellipsis-2">
+                    你活着补刀就是对我最大的侮辱，韩服最强王者组单杀集锦#19
+                </div>
+            </a>
+            <a href="#">
+                <div class="pic">
+                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_src/material/bli/images/1.jpg"
+                        alt="">
+                    <div class="count">
+                        <p>
+                            <i class="iconfont icon_fenqudaohang_paihangbang"></i>
+                            <span>132</span>万
+                        </p>
+                        <p>
+                            <i class="iconfont icon_shipin_danmushu"></i>
+                            <span>2.4</span>万
+                        </p>
+                    </div>
+                </div>
+                <div class="txt ellipsis-2">
+                    你活着补刀就是对我最大的侮辱，韩服最强王者组单杀集锦#19
+                </div>
+            </a>
+            <a href="#">
+                <div class="pic">
+                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_src/material/bli/images/1.jpg"
+                        alt="">
+                    <div class="count">
+                        <p>
+                            <i class="iconfont icon_fenqudaohang_paihangbang"></i>
+                            <span>132</span>万
+                        </p>
+                        <p>
+                            <i class="iconfont icon_shipin_danmushu"></i>
+                            <span>2.4</span>万
+                        </p>
+                    </div>
+                </div>
+                <div class="txt ellipsis-2">
+                    你活着补刀就是对我最大的侮辱，韩服最强王者组单杀集锦#19
+                </div>
+            </a>
+            <a href="#">
+                <div class="pic">
+                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_src/material/bli/images/1.jpg"
+                        alt="">
+                    <div class="count">
+                        <p>
+                            <i class="iconfont icon_fenqudaohang_paihangbang"></i>
+                            <span>132</span>万
+                        </p>
+                        <p>
+                            <i class="iconfont icon_shipin_danmushu"></i>
+                            <span>2.4</span>万
+                        </p>
+                    </div>
+                </div>
+                <div class="txt ellipsis-2">
+                    你活着补刀就是对我最大的侮辱，韩服最强王者组单杀集锦#19
+                </div>
+            </a>
+            <a href="#">
+                <div class="pic">
+                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_src/material/bli/images/1.jpg"
+                        alt="">
+                    <div class="count">
+                        <p>
+                            <i class="iconfont icon_fenqudaohang_paihangbang"></i>
+                            <span>132</span>万
+                        </p>
+                        <p>
+                            <i class="iconfont icon_shipin_danmushu"></i>
+                            <span>2.4</span>万
+                        </p>
+                    </div>
+                </div>
+                <div class="txt ellipsis-2">
+                    你活着补刀就是对我最大的侮辱，韩服最强王者组单杀集锦#19
+                </div>
+            </a>
+            <a href="#">
+                <div class="pic">
+                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_src/material/bli/images/1.jpg"
+                        alt="">
+                    <div class="count">
+                        <p>
+                            <i class="iconfont icon_fenqudaohang_paihangbang"></i>
+                            <span>132</span>万
+                        </p>
+                        <p>
+                            <i class="iconfont icon_shipin_danmushu"></i>
+                            <span>2.4</span>万
+                        </p>
+                    </div>
+                </div>
+                <div class="txt ellipsis-2">
+                    你活着补刀就是对我最大的侮辱，韩服最强王者组单杀集锦#19
+                </div>
+            </a>
+            <a href="#">
+                <div class="pic">
+                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/developing/_src/material/bli/images/1.jpg"
+                        alt="">
+                    <div class="count">
+                        <p>
+                            <i class="iconfont icon_fenqudaohang_paihangbang"></i>
+                            <span>132</span>万
+                        </p>
+                        <p>
+                            <i class="iconfont icon_shipin_danmushu"></i>
+                            <span>2.4</span>万
+                        </p>
+                    </div>
+                </div>
+                <div class="txt ellipsis-2">
+                    你活着补刀就是对我最大的侮辱，韩服最强王者组单杀集锦#19
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
