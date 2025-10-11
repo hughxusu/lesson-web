@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: table;
+}
+
+.clearfix::after { 
+  clear: both;
+}
+
+body {
+    background-color: #F5F5F5;
+}
+
+.content {
+    width: 1440px;
+    height: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+    width: 620px;
+    height: 100%;
+    position: relative;
+}
+
+.right .logo {
+    position: absolute;
+    top: 178px;
+    left: 56px;
+}
+
+.right h1 {
+    position: absolute;
+    top: 246px;
+    left: 56px;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 36px;
+    color: #0E0E19;
+}
+
+.right .input-text {
+    width: 350px;
+    height: 80px;
+}
+
+
+.right .input-text label {
+    display: block;
+    font-size: 14px;
+    line-height: 24px;
+    color: #0E0E19;
+    letter-spacing: 2px;
+}
+
+.right .input-text input {
+    width: 350px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(31,20,57,0.31);
+    box-sizing: border-box;
+    margin-top: 8px;
+    padding: 11px 24px;
+}
+
+.right .email {
+    position: absolute;
+    top: 323px;
+    left: 56px;
+}
+
+.right .pwd {
+    position: absolute;
+    top: 436px;
+    left: 56px;
+}
+
+.right .forgot-pwd {
+    position: absolute;
+    top: 532px;
+    left: 56px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #0E0E19;
+}
+
+.right .sign-in {
+    position: absolute;
+    top: 581px;
+    left: 56px;
+    width: 350px;
+    height: 48px;
+    background-color: #3478E8;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    line-height: 36px;
+    color: #fff;
+}
+
+.right .remember {
+    position: absolute;
+    top: 660px;
+    left: 56px;
+    font-size: 16px;
+    line-height: 26px;
+    color: #0E0E19;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.right .remember input {
+    height: 24px;
+    width: 24px;
+    box-sizing: border-box;
+    border: 1.5px solid rgba(31,20,57,0.31);
+    border-radius: 5px;
+    margin: 0;
+}
+
+.right .register {
+    position: absolute;
+    top: 816px;
+    left: 108px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #0E0E19;
+}
