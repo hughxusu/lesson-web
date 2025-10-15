@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font: 4.615vw normal;
+    line-height: 6.41vw;
+}
+
+.bar {
+    height: 10.256vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 11.282vw;
+    position: relative;
+}
+
+.bar .select {
+    width: 5.128vw;
+    margin-left: 5.128vw;
+}
+
+.bar .avator {
+    width: 10.256vw;
+    margin-right: 8.718vw;
+}
+
+.bar .info {
+    position: absolute;
+    width: 2.564vw;
+    right: 8.974vw;
+    top: 8.974vw;
+}
+
+.welcome {
+    width: 100%;
+    height: 20.513vw;
+    margin-top: 12.308vw;
+    font: 6.667vw normal;
+    padding-left: 5.128vw;
+    box-sizing: border-box;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5.128vw;
+}
+
+.search-bar input {
+    width: 70.513vw;
+    height: 10.256vw;
+    border: 0.385vw solid #EEEEEE;
+    border-radius: 1.795vw;
+    box-sizing: border-box;
+    margin-left: 5.128vw;
+    padding: 2.564vw 3.846vw;
+}
+
+.search-bar input::placeholder {
+    color: #CCCCCC;
+}
+
+.search-bar button {
+    border: 0;
+    box-sizing: border-box;
+    width: 10.256vw;
+    height: 10.256vw;
+    background-color: #FF7D0D;
+    border-radius: 1.795vw;
+    margin-right: 8.974vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar button img {
+    width: 4.103vw;
+}
+
+.local {
+    height: 45.128vw;
+    width: 86.154vw;
+    margin: 6.923vw 0 0 5.128vw;
+}
+
+.local .card {
+    margin-top: 3.59vw;
+    width: 100%;
+    height: 34.872vw;
+    background-color: #F8F8F8;
+    border-radius: 3.846vw;
+    position: relative;
+}
+
+.local .card .flag {
+    width: 6.154vw;
+    position: absolute;
+    top: 0;
+    right: 5.128vw;
+}
+
+.local .card .preview {
+    width: 14.103vw;
+    position: absolute;
+    box-sizing: border-box;
+    top: 5.128vw;
+    left: 3.846vw;
+}
+
+.local .card h3 {
+    position: absolute;
+    height: 5.641vw;
+    top: 6.154vw;
+    left: 20.769vw;
+    font: 4.103vw normal;
+    line-height: 5.641vw;
+}
+
+.local .card .pin {
+    position: absolute;
+    width: 2.564vw;
+    font: 3.333vw normal;
+    width: 13.846vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #AAAAAA;
+    left: 21.795vw;
+    top: 13.846vw;
+}
+
+.local .card .pin img {
+    width: 2.564vw;
+    display: flex;
+}
+
+.local .card p {
+    width: 78.205vw;
+    position: absolute;
+    left: 3.846vw;
+    font: 2.821vw normal;
+    top: 21.795vw;
+    color: #AAAAAA;
+}
+
+
+
