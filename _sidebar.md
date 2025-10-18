@@ -28,7 +28,7 @@
   * [JavaScript介绍](/docs/js/a-base/01-介绍.md)
   * [从变量开始](/docs/js/a-base/02-变量.md)
   * [数据类型](/docs/js/a-base/03-类型.md)
-  * [运算符](/docs/js/a-base/04-运算.md)
+  * [字符串](/docs/js/a-base/04-字符.md)
   * [条件控制](/docs/js/a-base/05-条件.md)
   * [数组](/docs/js/a-base/06-数组.md)
   * [循环控制](/docs/js/a-base/07-循环.md)

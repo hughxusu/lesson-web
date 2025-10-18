@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            margin: 0 auto;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        table th,
+        td {
+            border: 1px solid #000;
+            padding: 15px;
+
+        }
+
+        table caption {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+<script>
+    let name = prompt('请输学生姓名:')
+    let html = +prompt('请输入HTML/CSS成绩:')
+    let js = +prompt('请输入JavaScript成绩:')
+    let avg = (html + js) / 2
+
+    document.write(`
+        <table>
+            <caption>
+                <h2>学生成绩单</h2>
+            </caption>
+            <tr>
+                <th>姓名</th>
+                <th>HTML/CSS</th>
+                <th>avaScript</th>
+                <th>平均分</th>
+            </tr>
+            <tr>
+                <td>${name}</td>
+                <td>${html}</td>
+                <td>${js}</td>
+                <td>${avg}</td>
+            </tr>
+        </table>
+    `)
+</script>
+
+</html>
