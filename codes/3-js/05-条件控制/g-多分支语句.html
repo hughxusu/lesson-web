@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    let time = +prompt('请输入当前时间：')
+    if (time > 5 && time < 8) {
+        document.write(`<h1>亲，早上好！</h1>`)
+    } else if (time < 12) {
+        document.write(`<h1>亲，上午好！</h1>`)
+    } else if (time < 13) {
+        document.write(`<h1>亲，中午休息一会吧！</h1>`)
+    } else if (time < 17) {
+        document.write(`<h1>亲，下午好！</h1>`)
+    } else if (time < 18) {
+        document.write(`<h1>亲，下班了！</h1>`)
+    } else if (time < 23) {
+        document.write(`<h1>亲，晚上好！</h1>`)
+    } else {
+        document.write(`<h1>亲，深夜了，早点休息吧！</h1>`)
+    }
+</script>
+</html>

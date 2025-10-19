@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    let day = +prompt('请输入当前是星期几：')
+    switch (day) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            document.write(`<h1>亲，工作日！</h1>`);
+            break;
+        case 6:
+        case 7:
+            document.write(`<h1>亲，休息日！</h1>`);
+            break;
+        default:
+            document.write(`<h1>亲，输入有误！</h1>`);
+    }
+</script>
+</html>
