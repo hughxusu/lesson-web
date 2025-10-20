@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 </body>
 <script>
-    let one = '晚来天欲雪'
-    let two = '能饮一杯无'
-    let three = '晚来天欲雪'
+    while (true) {
+        let str = prompt(`
+            请输入操作命令:
+        `)
 
-    console.log(one == two)
-    console.log(one == three)
+        if (str === 'exit') {
+            break
+        }
 
-    // console.log(one.length)
+        alert(`执行命令：${str}`)
+    }
 </script>
+
 </html>

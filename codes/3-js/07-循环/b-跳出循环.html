@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    let techs = ['html', 'css', 'js', 'vue', 'react', 'angular']
+    let i = 0
+    while (i < techs.length) {
+        if (techs[i].length > 4) {
+            break
+        }
+
+        if (techs[i].length < 3) {
+            i++
+            continue
+        }
+
+        document.write(`<h1>${techs[i]}</h1>`)
+        i++
+    }
+</script>
+</html>
