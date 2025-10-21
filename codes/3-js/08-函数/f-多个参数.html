@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    function addArray(arr1, arr2) {
+        if (arr1.length !== arr2.length) {
+            console.log('数组长度不一致')
+            return []
+        }
+
+        let sum = []
+        for (let i = 0; i < arr1.length; i++) {
+            sum.push(arr1[i] + arr2[i])
+        }
+        return sum
+    }
+
+    let a = [1, 2, 3, 4]
+    let b = [5, 6, 7, 8]
+    let sum = addArray(a, b)
+
+    document.write(`<h1>[${sum}]</h1>`)
+</script>
+</html>

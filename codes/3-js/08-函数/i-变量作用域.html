@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    // 全局变量
+    let pi = 3.1415926 
+
+    // 局部变量
+    function getAreaAndCircle(r) {
+        let area = pi * r * r 
+        let circle = 2 * pi * r
+        return [area, circle]
+    }
+    // document.write(`<h1>${area}</h1>`)
+
+    let result = getAreaAndCircle(5)
+    // 块级变量
+    for (let i = 0; i < result.length; i++) { 
+        document.write(`<h1>${result[i]}</h1>`)
+    }
+</script>
+</html>

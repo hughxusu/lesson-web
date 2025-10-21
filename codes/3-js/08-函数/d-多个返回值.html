@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    function getMaxMinAndAvg(arr) {
+        let sum = 0
+        let max = arr[0]
+        let min = arr[0]
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i]
+            if (arr[i] > max) {
+                max = arr[i]
+            }
+
+            if (arr[i] < min) {
+                min = arr[i]
+            }
+        }
+
+        // return [max, min]
+
+        let avg = sum / arr.length
+        return [max, min, avg]
+        // return max, min, avg
+    }
+
+    let a = [6.5, 7, 8, 7]
+    let result = getMaxMinAndAvg(a)
+    document.write(`<h1>最大值：${result[0]}</h1>`)
+    document.write(`<h1>最小值：${result[1]}</h1>`)
+    document.write(`<h1>平均值：${result[2]}</h1>`)
+</script>
+</html>

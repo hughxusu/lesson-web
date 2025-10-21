@@ -10,10 +10,13 @@
 <body>
 </body>
 <script>
-    for (let i = 0; i < 5; i++) {
-        console.log(`第${i}次循环`)
+    let a = [6.5, 7, 8, 7]
+    let sum = 0
+    for (let i = 0; i < a.length; i++) {
+        sum += a[i]
     }
-    // console.log(`循环结束值${i}`)
+    let avg = sum / a.length
+    document.write(`<h1>平均值：${avg}</h1>`)
 </script>
 
 </html>

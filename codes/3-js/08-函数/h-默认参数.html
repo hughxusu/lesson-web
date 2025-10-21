@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    function extendArray(arr, extendNum=10) {
+        arr = arr || []
+        for (let i = 0; i < extendNum; i++) {
+            arr.push(i)
+        }
+
+        return arr
+    }
+
+    result = extendArray(undefined)
+    document.write(`<h1>结果：[${result}]</h1>`)
+</script>
+
+</html>
