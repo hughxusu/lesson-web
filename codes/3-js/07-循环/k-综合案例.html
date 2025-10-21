@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        body {
+            background-color: #F7F7F7;
+        }
+
+        .container {
+            margin: 100px auto;
+            display: flex;
+            justify-self: center;
+        }
+
+        .item {
+            width: 175px;
+            margin: 0 20px;
+        }
+
+        .item img {
+            width: 175px;
+        }
+
+        .item .card {
+            width: 175px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 0cap 0px 10px 10px;
+        }
+
+        .item .card .type {
+            font-size: 12px;
+            color: #8D8D8D;
+        }
+
+        .item .card h2 {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .item .card .price {
+            font-size: 14px;
+            margin-top: 24px;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<script>
+    names = ['萨卡里亚斯扶手椅', '巴尔沙尔座椅', '安杰椅', '年图座椅']
+    prices = [1198, 1499, 519, 921]
+
+    document.write('<div class="container">')
+    for (let i = 0; i < names.length; i++) {
+        document.write(`
+        <div class="item">
+            <img src="./images/chair.png" alt="">
+            <div class="card">
+                <p class="type">椅子</p>
+                <h2>${names[i]}</h2>
+                <p class="price">￥${prices[i]}</p>
+            </div>
+        </div>
+        `)
+    }
+    document.write('</div>')
+</script>
+
+</html>
