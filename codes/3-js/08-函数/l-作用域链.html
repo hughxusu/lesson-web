@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    let pi = 3.14
+
+    function fun() {
+        let pi = 3.1415
+        document.write(`<h1>PI-fun: ${pi}</h1>`)
+        function fun2() {
+            let pi = 3.1415926
+            document.write(`<h1>PI-fun1: ${pi}</h1>`)
+        }
+        fun2()
+    }
+    fun()
+    document.write(`<h1>PI-外部: ${pi}</h1>`)
+</script>
+</html>

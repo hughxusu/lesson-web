@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    function maxValues() {
+        let max = arguments[0]
+        for (let i = 0; i < arguments.length; i++) {
+            if (arguments[i] > max) {
+                max = arguments[i]
+            }
+        }
+        return max
+    }
+
+    let result = maxValues(6, 7, 5, 9, 8)
+    document.write(`<h1>Max: ${result}</h1>`)
+</script>
+
+</html>
