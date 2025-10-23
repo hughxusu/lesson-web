@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    function getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min
+    }
+
+    let balls = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    let boxes = [[], [], []]
+    for (let i = 0; i < balls.length; i++) {
+        let random = getRandom(0, boxes.length - 1)
+        boxes[random].push(balls[i])
+    }
+
+    for (let i = 0; i < boxes.length; i++) {
+        document.write(`<h1>盒子${i + 1}: \t ${boxes[i]}</h1>`)
+    }
+</script>
+</html>

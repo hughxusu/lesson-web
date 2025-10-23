@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    // 随机数生成函数
+    function getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min
+    }
+
+    let random = getRandom(1, 10);
+    document.write(`<h1>${random}</h1>`)
+</script>
+</html>
