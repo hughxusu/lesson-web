@@ -13,7 +13,6 @@
     let user = { }
     console.log(user)
 
-
     let product = {
         'name': '无线蓝牙耳机',
         "price": 299,
@@ -31,6 +30,50 @@
         },
     }
     console.log(order)
+
+    // document.write(`<h1>${product.name}</h1>`)
+    // document.write(`<h1>${product['price']}</h1>`)
+    // let key = 'brand'
+    // document.write(`<h1>${product[key]}</h1>`)
+
+    // document.write(`<h1>${order.getTotalPrice()} 元</h1>`)
+
+    // document.write(`<h1>${product.price}</h1>`)
+    // product.price = 399
+    // document.write(`<h1>${product.price}</h1>`)
+
+    // document.write(`<h1>${order.num} </h1>`)
+    // order['num'] = 3
+    // document.write(`<h1>${order.num} </h1>`)
+
+    // order.getTotalPrice = function (coupon=0) {
+    //     let totalPrice = order.product.price * order.num * order.discount
+    //     if (totalPrice <= coupon) {
+    //         return 0
+    //     }
+    //     return totalPrice - coupon
+    // }
+
+    // document.write(`<h1>${order.getTotalPrice()}</h1>`)
+    // document.write(`<h1>${order.getTotalPrice(300)} 元</h1>`)
+
+    // document.write(`<h1>${order.address}</h1>`)
+    order.address = '北京市海淀区'
+    document.write(`<h1>${order.address}</h1>`)
+
+    order['postage'] = 15
+    document.write(`<h1>${order.postage} 元</h1>`)
+
+    order.getTotalPay = function () {
+        return order.getTotalPrice() + order.postage
+    }
+
+    document.write(`<h1>${order.getTotalPay()} 元</h1>`)
+
+    delete order.address
+    document.write(`<h1>${order.address}</h1>`)
+
+
 </script>
 
 </html>
