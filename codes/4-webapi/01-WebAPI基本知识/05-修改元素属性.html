@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .show {
+            width: 600px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        button {
+            padding: 6px 12px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 22px;
+            margin-top: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="show">
+        <img src="" width="600">
+        <button>
+            切换图片
+        </button>
+    </div>
+</body>
+<script>
+    function getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min
+    }
+
+    let path = 'https://raw.githubusercontent.com/hughxusu/lesson-web/develop/images/material/silder/'
+    let arr = ['naz1.jpg', 'naz2.jpg', 'naz3.jpg', 'naz4.jpg', 'naz5.jpg', 'naz6.jpg', 'naz7.jpg']
+    let randomIndex = getRandom(0, arr.length - 1)
+    let img = document.querySelector('img')
+    img.src = path + arr[randomIndex]
+    img.title = randomIndex
+
+    let btn = document.querySelector('button')
+    btn.addEventListener('click', function () {
+        randomIndex = getRandom(0, arr.length - 1)
+        img.src = path + arr[randomIndex]
+        img.title = randomIndex
+    })
+</script>
+
+</html>
