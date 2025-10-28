@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            margin: 40px auto;
+            background-color: skyblue;
+            padding: 12px;
+            border: 2px solid gray;
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>倒计时: 5</h1>
+</body>
+<script>
+    let h1 = document.querySelector('h1')
+    let count = 5
+    let timer = setInterval(() => {
+        count--
+        h1.innerHTML = `倒计时: ${count}`
+        // if (count <= 0) {
+        //     clearInterval(timer)
+        //     h1.innerHTML = '倒计时结束'
+        // }
+    }, 1000)
+</script>
+</html>

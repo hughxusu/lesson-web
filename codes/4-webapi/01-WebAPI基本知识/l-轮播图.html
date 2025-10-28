@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .show {
+            width: 600px;
+            margin: 40px auto 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            border: 2px solid #ccc;
+            padding: 10px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="show">
+        <img src="" width="100%">
+        <h1></h1>
+    </div>
+</body>
+<script>
+    let path = 'https://raw.githubusercontent.com/hughxusu/lesson-web/develop/images/material/silder/'
+    let arr = [
+        { name: 'naz1.jpg', title: '云想衣裳花想容' },
+        { name: 'naz2.jpg', title: '春风拂槛露华浓' },
+        { name: 'naz3.jpg', title: '若非群玉山头见' },
+        { name: 'naz4.jpg', title: '会向瑶台月下逢' },
+    ]
+    let img = document.querySelector('img')
+    img.src = path + arr[0].name
+
+    let title = document.querySelector('.show h1')
+    title.innerHTML = arr[0].title
+
+    let index = 0
+    setInterval(function() {
+        index = (index + 1) % arr.length
+        img.src = path + arr[index].name
+        title.innerHTML = arr[index].title
+    }, 1500)
+</script>
+</html>
