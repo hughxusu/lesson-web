@@ -11,24 +11,12 @@
             margin: 40px auto;
             text-align: center;
         }
-
-        button {
-            padding: 6px 12px;
-            border: 1px solid #000;
-            border-radius: 5px;
-            font-size: 22px;
-            margin-top: 20px;
-            box-sizing: border-box;
-        }
     </style>
 </head>
 
 <body>
     <div class="show">
         <img src="" width="600">
-        <button>
-            切换图片
-        </button>
     </div>
 </body>
 <script>
@@ -42,13 +30,6 @@
     let img = document.querySelector('img')
     img.src = path + arr[randomIndex]
     img.title = randomIndex
-
-    let btn = document.querySelector('button')
-    btn.addEventListener('click', function () {
-        randomIndex = getRandom(0, arr.length - 1)
-        img.src = path + arr[randomIndex]
-        img.title = randomIndex
-    })
 </script>
 
 </html>
