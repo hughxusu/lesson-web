@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pic {
+            width: 240px;
+            height: 240px;
+            border: 1px solid #000;
+            background: url('https://raw.githubusercontent.com/hughxusu/lesson-web/develop/images/material/bg.png') no-repeat;
+            position: relative;
+            margin: 40px auto;
+        }
+
+        .close {
+            position: absolute;
+            right: -66px;
+            top: -1px;
+            width: 64px;
+            height: 64px;
+            background: url('https://raw.githubusercontent.com/hughxusu/lesson-web/develop/images/material/close.png') no-repeat;
+            cursor: pointer;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pic">
+        <span class="close">
+        </span>
+    </div>
+</body>
+<script>
+    let close_btn = document.querySelector('.close')
+    close_btn.addEventListener('click', function () {
+        this.parentNode.style.display = 'none'
+    })
+</script>
+
+</html>

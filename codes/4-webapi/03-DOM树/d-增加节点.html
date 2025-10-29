@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .box {
+            width: 200px;
+            background-color: skyblue;
+            text-align: center;
+            margin: 12px auto;
+            padding: 12px 0;
+            font-size: 18px;
+            border: 2px solid gray;
+        }
+
+
+        button {
+            font-size: 18px;
+            padding: 6px 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button id="header">添加标题</button>
+        <button id="content">添加内容</button>
+    </div>
+    <div class="root">
+        <div class="content">
+
+        </div>
+    </div>
+</body>
+<script>
+    let addHeader = document.querySelector('#header')
+    let addContent = document.querySelector('#content')
+
+    let root = document.querySelector('.root')
+    let content = document.querySelector('.content')
+
+    // addHeader.addEventListener('click', function () {
+    //     let h1 = document.createElement('h1')
+    //     h1.innerHTML = '宿建德江'
+    //     root.insertBefore(h1, root.children[0])
+    // })
+
+    // addContent.addEventListener('click', function () {
+    //     let div = document.createElement('div')
+    //     div.innerHTML = `
+    //         移舟泊烟渚，<br>
+    //         日暮客愁新。<br>
+    //         野旷天低树，<br>
+    //         江清月近人。
+    //     `
+    //     div.className = 'box'
+    //     content.appendChild(div)
+    // })
+</script>
+
+</html>
