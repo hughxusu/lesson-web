@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 96px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/develop/res/others/scope.png" alt="">
+</body>
+<script>
+    let img = document.querySelector('img')
+    document.addEventListener('mousemove', function (e) {
+        // img.style.left = e.pageX + 'px'
+        // img.style.top = e.pageY + 'px'
+
+        img.style.left = e.pageX - 48 + 'px'
+        img.style.top = e.pageY - 48 + 'px'
+    })
+</script>
+
+</html>
