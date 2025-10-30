@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 700px;
+            margin: 40px auto;
+        }
+
+        .tab {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+
+        .tab-item {
+            padding: 8px 12px;
+            background-color: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .tab-item.active {
+            background-color: #ccc;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="tab">
+            <div class="tab-item active" data-index="0">Image 1</div>
+            <div class="tab-item" data-index="1">Image 2</div>
+            <div class="tab-item" data-index="2">Image 3</div>
+            <div class="tab-item" data-index="3">Image 4</div>
+            <div class="tab-item" data-index="4">Image 5</div>
+            <div class="tab-item" data-index="5">Image 6</div>
+            <div class="tab-item" data-index="6">Image 7</div>
+        </div>
+        <div class="content active">
+            <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz1.jpg"
+                alt="Image 1">
+        </div>
+        <div class="content">
+            <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz2.jpg"
+                alt="Image 2">
+        </div>
+        <div class="content">
+            <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz3.jpg"
+                alt="Image 3">
+        </div>
+        <div class="content">
+            <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz4.jpg"
+                alt="Image 4">
+        </div>
+        <div class="content">
+            <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz5.jpg"
+                alt="Image 5">
+        </div>
+        <div class="content">
+            <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz6.jpg"
+                alt="Image 6">
+        </div>
+        <div class="content">
+            <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/images/material/silder/naz7.jpg"
+                alt="Image 7">
+        </div>
+    </div>
+</body>
+
+<script>
+    let tabs = document.querySelectorAll('.tab-item');
+    let contents = document.querySelectorAll('.content');
+    for (let i = 0; i < tabs.length; i++) {
+        tabs[i].addEventListener('click', function () {
+            for (let j = 0; j < tabs.length; j++) {
+                tabs[j].classList.remove('active');
+                contents[j].classList.remove('active');
+            }
+            this.classList.add('active');
+            contents[this.dataset.index].classList.add('active');
+
+            // document.querySelector('.tab-item.active').classList.remove('active');
+            // this.classList.add('active');
+
+            // document.querySelector('.content.active').classList.remove('active');
+            // contents[this.dataset.index].classList.add('active');
+        });
+    }
+</script>
+
+</html>
