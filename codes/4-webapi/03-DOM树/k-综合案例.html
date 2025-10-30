@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            margin: 44px auto;
+            width: 1170px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        ul li {
+            position: relative;
+            height: 352px;
+            width: 270px;
+            background-color: #F5F6F8;
+        }
+
+        ul li:hover {
+            background-color: #F07C52;
+        }
+
+        ul li img {
+            position: absolute;
+            left: 0;
+            top: 176px;
+            width: 100%;
+        }
+
+        ul li div {
+            position: absolute;
+            width: 100%;
+            height: 176px;
+            padding: 24px 32px;
+            box-sizing: border-box;
+        }
+
+        ul li div h3 {
+            font-weight: normal;
+            font-size: 20px;
+            color: #333333;
+        }
+
+        ul li div p {
+            font: normal 14px;
+            color: rgba(51, 51, 51, 0.5);
+            margin-top: 8px;
+        }
+
+        ul li div h2 {
+            font-weight: bold;
+            font-size: 40px;
+            color: #333333;
+            margin-top: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul></ul>
+</body>
+<script>
+    let data = [
+        {
+            name: '罗马, 意大利',
+            date: '2020年6月12日至24日',
+            price: '$349',
+            img: 'img1.png'
+        },
+        {
+            name: '纽约, 美国',
+            date: '2020年6月12日至24日',
+            price: '$200',
+            img: 'img2.png'
+        },
+        {
+            name: '巴塞罗那, 西班牙',
+            date: '2020年6月12日至24日',
+            price: '$95',
+            img: 'img3.png'
+        },
+        {
+            name: '巴黎, 法国',
+            date: '2020年6月12日至24日',
+            price: '$1200',
+            img: 'img4.png'
+        },
+        {
+            name: 'San Francisco, 美国',
+            date: '2020年6月12日至24日',
+            price: '$480',
+            img: 'img5.png'
+        },
+        {
+            name: 'Amesbury, UK',
+            date: '2020年6月12日至24日',
+            price: '$569',
+            img: 'img6.png'
+        },
+        {
+            name: 'Versailles, 法国',
+            date: '2020年6月12日至24日',
+            price: '$100',
+            img: 'img7.png'
+        },
+        {
+            name: 'Venice, 意大利',
+            date: '2020年6月12日至24日',
+            price: '$99',
+            img: 'img8.png'
+        }
+    ]
+
+    let ul = document.querySelector('ul')
+    let path = 'https://raw.githubusercontent.com/hughxusu/lesson-web/refs/heads/develop/res/travel/'
+    for (let i = 0; i < data.length; i++) {
+        let li = document.createElement('li')
+        li.innerHTML = `
+            <div>
+                <h3>${data[i].name}</h3>
+                <p>${data[i].date}</p>
+                <h2>${data[i].price}</h2>
+            </div>
+            <img src="${path}${data[i].img}" alt="">
+        `
+        ul.appendChild(li)
+    }
+</script>
+
+</html>
