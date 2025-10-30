@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            background-color: skyblue;
+            line-height: 50px;
+            padding: 12px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1></h1>
+</body>
+<script>
+    let arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+    let h1 = document.querySelector('h1')
+    // getTime()
+    setInterval(getTime, 1000)
+    function getTime() {
+        let date = new Date()
+        let year = date.getFullYear()
+        let month = (date.getMonth() + 1).toString().padStart(2, '0')
+        let date1 = date.getDate().toString().padStart(2, '0')
+        let hour = date.getHours().toString().padStart(2, '0')
+        let min = date.getMinutes().toString().padStart(2, '0')
+        let sec = date.getSeconds().toString().padStart(2, '0')
+        let day = date.getDay()
+        h1.innerText = `今天是： ${year}年${month}月${date1}日 ${hour}:${min}:${sec} ${arr[day]}`
+    }
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        button {
+            margin-bottom: 12px;
+            font-size: 20px;
+            padding: 5px 10px;
+        }
+
+        div {
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 20px;
+            padding: 0;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>remove it</button>
+    <div>
+        <p>云母屏风烛影深，</p>
+        <p>长河渐落晓星沉。</p>
+        <p>嫦娥应悔偷灵药，</p>
+        <p>碧海青天夜夜心。</p>
+    </div>
+</body>
+<script>
+    const btn = document.querySelector('button')
+    const div = document.querySelector('div')
+    btn.addEventListener('click', () => {
+        div.removeChild(div.children[0])
+        // div.remove()
+    })
+</script>
+
+</html>

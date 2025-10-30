@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +44,7 @@
             height: 176px;
             padding: 24px 32px;
             box-sizing: border-box;
-        } 
+        }
 
         ul li div h3 {
             font-weight: normal;
@@ -65,65 +66,67 @@
         }
     </style>
 </head>
+
 <body>
 </body>
 <script>
-        let data = [
-            {
-                name: '罗马, 意大利',
-                date: '2020年6月12日至24日',
-                price: '$349'
-            },
-            {
-                name: '纽约, 美国',
-                date: '2020年6月12日至24日',
-                price: '$200'
-            },
-            {
-                name: '巴塞罗那, 西班牙',
-                date: '2020年6月12日至24日',
-                price: '$95'
-            },
-            {
-                name: '巴黎, 法国',
-                date: '2020年6月12日至24日',
-                price: '$1200'
-            },
-            {
-                name: 'San Francisco, 美国',
-                date: '2020年6月12日至24日',
-                price: '$480'
-            },
-            {
-                name: 'Amesbury, UK',
-                date: '2020年6月12日至24日',
-                price: '$569'
-            },
-                        {
-                name: 'Versailles, 法国',
-                date: '2020年6月12日至24日',
-                price: '$100'
-            },
-                        {
-                name: 'Venice, 意大利',
-                date: '2020年6月12日至24日',
-                price: '$99'
-            }
-        ]
+    let data = [
+        {
+            name: '罗马, 意大利',
+            date: '2020年6月12日至24日',
+            price: '$349'
+        },
+        {
+            name: '纽约, 美国',
+            date: '2020年6月12日至24日',
+            price: '$200'
+        },
+        {
+            name: '巴塞罗那, 西班牙',
+            date: '2020年6月12日至24日',
+            price: '$95'
+        },
+        {
+            name: '巴黎, 法国',
+            date: '2020年6月12日至24日',
+            price: '$1200'
+        },
+        {
+            name: 'San Francisco, 美国',
+            date: '2020年6月12日至24日',
+            price: '$480'
+        },
+        {
+            name: 'Amesbury, UK',
+            date: '2020年6月12日至24日',
+            price: '$569'
+        },
+        {
+            name: 'Versailles, 法国',
+            date: '2020年6月12日至24日',
+            price: '$100'
+        },
+        {
+            name: 'Venice, 意大利',
+            date: '2020年6月12日至24日',
+            price: '$99'
+        }
+    ]
 
-        document.write(`<ul>`)
-        for (let i = 0; i < data.length; i++) {
-            document.write(`
+    document.write(`<ul>`)
+    for (let i = 0; i < data.length; i++) {
+        document.write(`
                 <li>
                     <div>
                         <h3>${data[i].name}</h3>
                         <p>${data[i].date}</p>
                         <h2>${data[i].price}</h2>
                     </div>
-                    <img src="./images/img${i+1}.png" alt="">
+                    <img src="./images/img${i + 1}.png" alt="">
                 </li>
             `)
-        }
-        document.write(`</ul>`)
+    }
+    document.write(`</ul>`)
 </script>
+
 </html>
