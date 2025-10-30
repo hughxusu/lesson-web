@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .controls {
+            width: 500px;
+            margin: 100px auto;
+        }
+
+        textarea {
+            width: 500px;
+            height: 200px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #e0e0e0;
+            outline: none;
+            transition: all .3s;
+        }
+
+        .useCount {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="controls">
+        <textarea placeholder="说点什么吧..." id="area" cols="30" rows="10" maxlength="140">
+        </textarea>
+        <div>
+            <span class="useCount">0</span>
+            <span>/</span>
+            <span>140</span>
+        </div>
+    </div>
+</body>
+<script>
+    let area = document.querySelector('#area')
+    let useCount = document.querySelector('.useCount')
+    // area.addEventListener('input', function () {
+    //     useCount.innerHTML = area.value.length
+    // })
+</script>
+</html>

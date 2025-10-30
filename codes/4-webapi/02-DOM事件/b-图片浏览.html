@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 600px;
+            margin: 40px auto;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .box>.bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 10px;
+        }
+
+        .box>.bar>button {
+            padding: 8px 12px;
+            background-color: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/develop/images/material/silder/naz1.jpg">
+        <div class="bar">
+            <button class="last">上一张</button>
+            <button class="next">下一张</button>
+        </div>
+    </div>
+</body>
+<script>
+    let path = 'https://raw.githubusercontent.com/hughxusu/lesson-web/develop/images/material/silder/'
+    let arr = ['naz1.jpg', 'naz2.jpg', 'naz3.jpg', 'naz4.jpg', 'naz5.jpg', 'naz6.jpg', 'naz7.jpg']
+
+    // let last = document.querySelector('.last')
+    // let next = document.querySelector('.next')
+    // let img = document.querySelector('img')
+    // let index = 0
+    // img.src = path + arr[index]
+    // last.disabled = true
+
+    // last.addEventListener('click', function () {
+    //     index--
+    //     img.src = path + arr[index]
+    //     if (index < arr.length - 1 && next.disabled) next.disabled = false
+    //     if (index === 0) last.disabled = true
+    // })
+
+    // next.addEventListener('click', function () {
+    //     index++
+    //     img.src = path + arr[index]
+    //     if (index > 0 && last.disabled) last.disabled = false
+    //     if (index === arr.length - 1) next.disabled = true
+    // })
+</script>
+
+</html>
