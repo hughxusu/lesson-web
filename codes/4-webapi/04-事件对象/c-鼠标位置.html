@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 2000px;
+        }
+
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            margin-top: 600px
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    document.addEventListener('click', function (e) {
+        console.log('clientX:' + e.clientX, 'clientY:' + e.clientY)
+        console.log('pageX:' + e.pageX, 'pageY:' + e.pageY)
+        console.log('offsetX:' + e.offsetX, 'offsetY:' + e.offsetY)
+    })
+</script>
+
+</html>
