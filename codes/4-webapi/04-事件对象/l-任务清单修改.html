@@ -82,23 +82,17 @@
             displayText.prepend(newText);
             inputText.value = '';
         }
+    });
 
-        let okBtn = document.querySelectorAll('.ok');
-        for (let i = 0; i < okBtn.length; i++) {
-            okBtn[i].addEventListener('click', function () {
-                if (this.checked) {
-                    this.parentElement.parentElement.style.textDecoration = 'line-through';
-                } else {
-                    this.parentElement.parentElement.style.textDecoration = 'none';
-                }
-            });
-        }
-
-        let deleteBtn = document.querySelectorAll('.delete');
-        for (let i = 0; i < deleteBtn.length; i++) {
-            deleteBtn[i].addEventListener('click', function () {
-                this.parentElement.parentElement.remove();
-            });
+    displayText.addEventListener('click', function (event) {
+        if (event.target.classList.contains('ok')) {
+            if (event.target.checked) {
+                event.target.parentElement.parentElement.style.textDecoration = 'line-through';
+            } else {
+                event.target.parentElement.parentElement.style.textDecoration = 'none';
+            }
+        } else if (event.target.classList.contains('delete')) {
+            event.target.parentElement.parentElement.remove();
         }
     });
 </script>

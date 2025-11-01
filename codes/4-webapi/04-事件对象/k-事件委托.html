@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><h2>君问归期未有期，</h2></li>
+        <li><h2>巴山夜雨涨秋池。</h2></li>
+        <li><h2>何当共剪西窗烛，</h2></li>
+        <li><h2>却话巴山夜雨时。</h2></li>
+    </ul>
+</body>
+<script>
+    let ul = document.querySelector('ul')
+    ul.addEventListener('click', function (e) {
+        alert(e.target.innerHTML)
+    })
+</script>
+</html>
