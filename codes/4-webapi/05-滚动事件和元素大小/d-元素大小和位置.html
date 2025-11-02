@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        div {
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+            border: 10px solid black;
+            overflow: auto;
+        }
+
+        div p {
+            font-size: 18px;
+            line-height: 1.7;
+            width: 940px;
+            background-color: skyblue;
+        }
+
+        ul {
+            width: 470px;
+            margin: 20px auto;
+        }
+
+        ul li {
+            font-size: 22px;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        岳阳楼记
+    </h1>
+    <div>
+        <p>
+            庆历四年春，滕子京谪守巴陵郡。<br>
+            越明年，政通人和，百废具兴，乃重修岳阳楼，增其旧制，刻唐贤今人诗赋于其上，属予作文以记之。<br>
+            予观夫巴陵胜状，在洞庭一湖。<br>
+            衔远山，吞长江，浩浩汤汤，横无际涯，朝晖夕阴，气象万千，此则岳阳楼之大观也，前人之述备矣。<br>
+            然则北通巫峡，南极潇湘，迁客骚人，多会于此，览物之情，得无异乎？<br>
+            若夫淫雨霏霏，连月不开，阴风怒号，浊浪排空，日星隐曜，山岳潜形，商旅不行，樯倾楫摧，薄暮冥冥，虎啸猿啼。<br>
+            登斯楼也，则有去国怀乡，忧谗畏讥，满目萧然，感极而悲者矣。<br>
+            至若春和景明，波澜不惊，上下天光，一碧万顷，沙鸥翔集，锦鳞游泳，岸芷汀兰，郁郁青青。<br>
+            而或长烟一空，皓月千里，浮光跃金，静影沉璧，渔歌互答，此乐何极！<br>
+            登斯楼也，则有心旷神怡，宠辱偕忘，把酒临风，其喜洋洋者矣。<br>
+            嗟夫！<br>
+            予尝求古仁人之心，或异二者之为，何哉？<br>
+            不以物喜，不以己悲，居庙堂之高则忧其民，处江湖之远则忧其君。是进亦忧，退亦忧。<br>
+            然则何时而乐耶？<br>
+            其必曰：“先天下之忧而忧，后天下之乐而乐”乎！噫！微斯人，吾谁与归？时六年九月十五日。<br>
+        </p>
+    </div>
+    <ul>
+        <li></li>
+        <li>scrollTop: 0px, scrollLeft: 0px</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+<script>
+
+    let div = document.querySelector('div')
+    let lis = document.querySelectorAll('ul li')
+    lis[0].innerText = `scrollWidth: ${div.scrollWidth}px, scrollHeight: ${div.scrollHeight}px`
+    div.addEventListener('scroll', function () {
+        lis[1].innerText = `scrollTop: ${this.scrollTop}px, scrollLeft: ${this.scrollLeft}px`
+    })
+
+    lis[2].innerText = `offsetWidth: ${div.offsetWidth}px, offsetHeight: ${div.offsetHeight}px`
+    lis[3].innerText = `offsetTop: ${div.offsetTop}px, offsetLeft: ${div.offsetLeft}px`
+    lis[4].innerText = `clientWidth: ${div.clientWidth}px, clientHeight: ${div.clientHeight}px`
+    lis[5].innerText = `clientTop: ${div.clientTop}px, clientLeft: ${div.clientLeft}px`
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
