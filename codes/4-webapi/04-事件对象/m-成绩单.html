@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #721c24;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+
+        }
+
+        table {
+            margin: 0 auto;
+            width: 800px;
+            border-collapse: collapse;
+            color: #004085;
+        }
+
+        th {
+            padding: 10px;
+            background: #cfe5ff;
+
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        td,
+        th {
+            border: 1px solid #b8daff;
+        }
+
+        td {
+            padding: 10px;
+            color: #666;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        tbody tr {
+            background: #fff;
+        }
+
+        tbody tr:hover {
+            background: #e1ecf8;
+        }
+
+        .info {
+            width: 900px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .info input {
+            width: 80px;
+            height: 25px;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #b8daff;
+            padding-left: 5px;
+        }
+
+        .info button {
+            width: 60px;
+            height: 25px;
+            background-color: #004085;
+            outline: none;
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .info .age {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript编程课程成绩录入</h1>
+    <div class="info">
+        学号：<input type="text" class="stuId">
+        姓名：<input type="text" class="uname">
+        班级：<select name="city" id="" class="class">
+            <option value="信息与计算科学1班">信息与计算科学1班</option>
+            <option value="信息与计算科学2班">信息与计算科学2班</option>
+        </select>
+        成绩：<input type="text" class="score">
+        <button class="add">录入</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>班级</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+<script>
+    let arr = [
+        { stuId: 1001, uname: '张三', class: '信息与计算科学1班', score: 85 },
+        { stuId: 1001, uname: '李四', class: '信息与计算科学2班', score: 90 },
+    ]
+
+    let tbody = document.querySelector('tbody')
+    function render() {
+        // `每次刷新页面前清空节点
+        tbody.innerHTML = ''
+        for (let i = 0; i < arr.length; i++) {
+            let tr = document.createElement('tr')
+            tr.innerHTML = `
+                <td>${i + 1}</td>
+                <td>${arr[i].stuId}</td>
+                <td>${arr[i].uname}</td>
+                <td>${arr[i].class}</td>
+                <td>${arr[i].score}</td>
+                <td>
+                    <a href="javascript:" id="${i}">删除</a>
+                </td>
+            `
+            tbody.appendChild(tr)
+        }
+    }
+    render()
+
+    let stuId = document.querySelector('.stuId')
+    let uname = document.querySelector('.uname')
+    let clazz = document.querySelector('.class')
+    let score = document.querySelector('.score')
+    let add = document.querySelector('.add')
+    
+    add.addEventListener('click', function () {
+        arr.push({
+            stuId: Number(stuId.value),
+            uname: uname.value,
+            class: clazz.value,
+            score: score.value,
+        })
+        render()
+    })
+
+    // 事件委托，用于删除操作
+    tbody.addEventListener('click', function (e) {
+        // 判断是否点击的是a标签
+        if (e.target.tagName === 'A') {
+            arr.splice(+e.target.id, 1)
+            render()
+        }
+    })
+</script>
+
+</html>
