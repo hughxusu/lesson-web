@@ -28,19 +28,36 @@
             transform: translateY(-50%);
             width: 50px;
             height: 50px;
-            line-height: 50px;
-            text-align: center;
+            line-height: 46px;
             background-color: rgba(0, 0, 0, 0.5);
             color: #fff;
             text-decoration: none;
+            font-size: 24px;
+            box-sizing: border-box;
         }
 
         div a.prev {
             left: 0;
+            border-radius: 0 100% 100% 0;
+            text-align: left;
+            padding-left: 12px;
         }
 
         div a.next {
             right: 0;
+            border-radius:100% 0 0 100%;
+            text-align: right;
+            padding-right: 12px;
+        }
+
+        div .bar {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            width: 100px;
+            height: 24px;
+            background-color: red;
         }
     </style>
 </head>
@@ -49,6 +66,9 @@
         <img src="" alt="">
         <a href="javascript:" class="prev"><</a>
         <a href="javascript:" class="next">></a>
+        <div class="bar">
+
+        </div>
     </div>
 </body>
 
