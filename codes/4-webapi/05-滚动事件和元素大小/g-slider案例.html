@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            position: relative;
+            width: 640px;
+            overflow: hidden;
+            margin: 60px auto;
+        }
+
+        div img {
+            width: 100%;
+            height: 100%;
+        }
+
+        div a {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            text-decoration: none;
+        }
+
+        div a.prev {
+            left: 0;
+        }
+
+        div a.next {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="" alt="">
+        <a href="javascript:" class="prev"><</a>
+        <a href="javascript:" class="next">></a>
+    </div>
+</body>
+
+<script>
+    let path = 'https://raw.githubusercontent.com/hughxusu/lesson-web/develop/res/silder/'
+    let arr = ['naz1.jpg', 'naz2.jpg', 'naz3.jpg', 'naz4.jpg', 'naz5.jpg', 'naz6.jpg', 'naz7.jpg']
+    let div = document.querySelector('div')
+    let img = document.querySelector('img')
+    let prev = document.querySelector('.prev')
+    let next = document.querySelector('.next')
+    let index = 0
+    let timer = null
+    function autoPlay() {
+        timer = setInterval(() => {
+            index++
+            if (index >= arr.length) {
+                index = 0
+            }
+            img.src = path + arr[index]
+        }, 2000)
+    }
+    autoPlay()
+</script>
+
+
+</html>
