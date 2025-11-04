@@ -32,6 +32,7 @@
             line-height: 64px;
             text-align: center;
             background-color: #fff;
+            display: none;
         }
     </style>
 </head>
@@ -81,10 +82,9 @@
 <script>
     let btn = document.querySelector('button')
     let p = document.querySelector('p')
-
     window.addEventListener('scroll', function () {
         let num = document.documentElement.scrollTop
-        if (num >= 180) {
+        if (num >= p.offsetTop) {
             btn.style.display = 'block'
         } else {
             btn.style.display = 'none'
