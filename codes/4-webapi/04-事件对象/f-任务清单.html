@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
         }
-        
+
         h3 {
             font-size: 24px;
             margin-bottom: 12px;
@@ -24,10 +24,20 @@
         }
 
         #inputText {
-            width: 640px;
+            width: 500px;
             padding: 10px;
             font-size: 20px;
             margin-bottom: 12px;
+        }
+
+        #addBtn {
+            padding: 10px 24px;
+            font-size: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            margin-left: 12px;
         }
 
         #displayText {
@@ -54,19 +64,22 @@
         }
     </style>
 </head>
-
 <body>
     <div id="container">
         <h3>请输入你的任务：</h3>
-        <input type="text" id="inputText">
+        <div id="inputArea">
+            <input type="text" id="inputText"> <button id="addBtn">添加</button>
+        </div>
         <ul id="displayText"></ul>
     </div>
 </body>
 <script>
     let inputText = document.querySelector('#inputText');
     let displayText = document.querySelector('#displayText');
-    inputText.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter') {
+    let addBtn = document.querySelector('#addBtn');
+
+    function addItem() {
+        if (event.key === 'Enter' || event.type === 'click') {
             let newText = document.createElement('li');
             newText.innerHTML = `
                 <div>
@@ -100,7 +113,10 @@
                 this.parentElement.parentElement.remove();
             });
         }
-    });
+    }
+
+    inputText.addEventListener('keydown', addItem);
+    addBtn.addEventListener('click', addItem);
 </script>
 
 </html>
