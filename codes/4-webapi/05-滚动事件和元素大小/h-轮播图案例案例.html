@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            position: relative;
+            width: 640px;
+            overflow: hidden;
+            margin: 60px auto;
+        }
+
+        .box img {
+            width: 100%;
+        }
+
+        .box>a {
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            line-height: 46px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            box-sizing: border-box;
+        }
+
+        .box>a.prev {
+            left: 0;
+            border-radius: 0 100% 100% 0;
+            text-align: left;
+            padding-left: 12px;
+        }
+
+        .box>a.next {
+            right: 0;
+            border-radius:100% 0 0 100%;
+            text-align: right;
+            padding-right: 12px;
+        }
+
+        .box .bar {
+            position: absolute;
+            z-index: 1;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+        }
+
+        .box .bar>a {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: gray;
+            border-radius: 50%;
+            margin: 0 6px;
+            text-decoration: none;
+        }
+
+        .box .bar>a.active {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="" alt="">
+        <a href="javascript:" class="prev"> < </a>
+        <a href="javascript:" class="next"> > </a>
+        <div class="bar">        
+        </div>
+    </div>
+</body>
+<script>
+    let index = 0
+    let path = 'https://raw.githubusercontent.com/hughxusu/lesson-web/develop/res/silder/'
+    let arr = ['naz1.jpg', 'naz2.jpg', 'naz3.jpg', 'naz4.jpg', 'naz5.jpg', 'naz6.jpg', 'naz7.jpg']
+    let bar = document.querySelector('.box .bar')
+    for (let index = 0; index < arr.length; index++) {
+        let a = document.createElement('a')
+        a.href = 'javascript:'
+        a.id = index
+        if (index === 0) {
+            a.classList.add('active')
+        }
+        bar.appendChild(a)
+    }
+
+    bar.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            index = Number(e.target.id)
+            changeImg()
+        }
+    })
+
+    let img = document.querySelector('img')
+    function changeImg() {
+        img.src = path + arr[index]
+        let a = bar.querySelector('a.active')
+        a.classList.remove('active')
+        a = bar.children[index]
+        a.classList.add('active')
+    }
+    changeImg()
+
+        let prev = document.querySelector('.prev')
+    prev.addEventListener('click', () => {
+        index--
+        if (index < 0) {
+            index = arr.length - 1
+        }
+        changeImg()
+    })
+
+    let next = document.querySelector('.next')
+    next.addEventListener('click', () => {
+        index++
+        index = index % arr.length
+        changeImg()
+    })
+
+    let timer = null
+    function autoPlay() {
+        timer = setInterval(() => {
+            index++
+            if (index >= arr.length) {
+                index = 0
+            }
+            changeImg()
+        }, 2000)
+    }
+    autoPlay()
+
+    let box = document.querySelector('.box')
+    box.addEventListener('mouseenter', () => {
+        clearInterval(timer)
+    })
+    box.addEventListener('mouseleave', () => {
+        autoPlay()
+    })
+</script>
+</html>
