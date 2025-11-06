@@ -132,31 +132,59 @@ JS执行机制
 
 `location`对象拆分并保存了URL地址的各个组成部分。
 
-*  `href`属性获取完整的URL地址，对其赋值时用于地址的跳转。
+#### 获取地址
+
+`href`属性获取完整的URL地址，对其赋值时用于地址的跳转。
 
 ```html
-<style>
-  span {
-    color: red;
-  }
-</style>
-<a href="https://www.baidu.com/">支付成功，<span>5</span> 秒之后跳转首页</a>
+<body>
+    <a href="https://www.baidu.com/">支付成功，<span>5</span> 秒之后跳转首页</a>
+</body>
 <script>
-  let a = document.querySelector('a')
-  let num = 5
-  let timer = setInterval(function () {
-    num--
-    a.innerHTML = `支付成功，<span>${num}</span> 秒之后跳转首页`
-    if (num === 0) {
-      clearInterval(timer)
-      location.href = 'https://www.baidu.com/'
-    }
-  }, 1000)
+  	console.log(location.href)
+  
+    let a = document.querySelector('a')
+    let num = 4
+    let timer = setInterval(function () {
+        a.innerHTML = `支付成功，<span>${num--}</span> 秒之后跳转首页`
+        if (num === 0) {
+            clearInterval(timer)
+            location.href = 'https://www.baidu.com/'
+        }
+    }, 1000)
 </script>
 ```
 
-* `search`属性获取地址中携带的参数，符号?后面部分。
-* `hash`属性获取地址中的啥希值，符号#后面部分。
+#### 解析参数
+
+`search`属性获取地址中携带的参数，符号?后面部分。
+
+1. 提交表单到特点地址。
+
+```html
+<body>
+    <form action="e-2-target.html">
+        <input type="text" name="username">
+        <button>提交</button>
+    </form>
+</body>
+```
+
+2. 在跳转页查看参数
+
+```js
+document.write(`<h1>${location.search}</h1>`)
+```
+
+#### 哈希值
+
+`hash`属性获取地址中的啥希值，符号#后面部分。
+
+```
+```
+
+#### 刷新页面
+
 * `reload`方法用来刷新当前页面，传入参数`true`时表示强制刷新。
 
 ```html

@@ -1,1 +1,1 @@
-alert('hello, world')
+alert('黄河入海流');
