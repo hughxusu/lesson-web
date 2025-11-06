@@ -1,16 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            margin: 40px auto;
+            border: 1px solid #000;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            padding: 6px;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        button {
+            display: block;
+            margin: 12px auto;
+            padding: 6px 12px;
+            font-size: 18px;
+        }
     </style>
 </head>
+
 <body>
-    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/develop/res/others/bg.png" alt="">  
+    <div>
+        <p>5秒后关闭标签</p>
+        <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/develop/res/others/bg.png" alt="">
+        <button>
+            关闭定时器
+        </button>
+    </div>
 </body>
 <script>
+    let counter = 4
+    let timer = setInterval(() => {
+        let p = document.querySelector('p')
+        p.innerHTML = `${counter--}秒后关闭标签`
+    }, 1000)
 
+    let timerOut = setTimeout(() => {
+        document.querySelector('div').remove()
+        clearInterval(timer)
+    }, 5000)
+
+    let btn = document.querySelector('button')
+    btn.addEventListener('click', () => {
+        clearTimeout(timerOut)
+        clearInterval(timer)
+    })
 </script>
 </html>

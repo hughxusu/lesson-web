@@ -19,42 +19,60 @@ console.log(window)
 
 ## 定时器
 
-`setTimeout(func, delay)`让代码延迟执行，`func`回调函数，`delay`延迟时间。返回定时器id值。使用`clearTimeout`可以关闭定时器。
+`setTimeout(func, delay)`让代码延迟执行。`setTimeout`仅仅只执行一次，可以理解为把一段代推迟执行。
+
+* `func`回调函数，`delay`延迟时间。
+* 返回定时器id值。
+* 使用`clearTimeout`可以关闭定时器。
 
 ```html
-<h1></h1>
-<button>
-  Click me
-</button>
+<body>
+    <div>
+        <p>5秒后关闭标签</p>
+        <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/develop/res/others/bg.png" alt="">
+        <button>
+            关闭定时器
+        </button>
+    </div>
+</body>
 <script>
-  let h1 = document.querySelector('h1')
-  let btn = document.querySelector('button')
-  let timer = 0
-  function fn() {
-    h1.textContent = new Date().toLocaleTimeString()
-    timer = setTimeout(fn, 1000)
-  }
-  fn()
+    let counter = 4
+    let timer = setInterval(() => {
+        let p = document.querySelector('p')
+        p.innerHTML = `${counter--}秒后关闭标签`
+    }, 1000)
 
-  btn.addEventListener('click', function() {
-    clearTimeout(timer)
-    h1.textContent = 'Timer stopped'
-  })
+    let timerOut = setTimeout(() => {
+        document.querySelector('div').remove()
+        clearInterval(timer)
+    }, 5000)
+
+    let btn = document.querySelector('button')
+    btn.addEventListener('click', () => {
+        clearTimeout(timerOut)
+        clearInterval(timer)
+    })
 </script>
 ```
 
+两种定时器对比
+
+* `setInterval`的特征是重复执行，首次执行会延时；`clearInterval`清除由`setInterval`设置的定时器。
+* `setTimeout`的特征是延时执行，只执行1次；`clearTimeout`清除由`setTimeout`设置的定时器
+
 ## JS执行机制
 
-Javascript语言单线程编程语言，这由Javascript语言的使命决定——处理页面中用户的交互。
+由于Javascript的主要任务是，处理页面中用户的交互，所以Javascript语言单线程编程语言。
 
-* 同一个时间只能完成一个任务。比如用户对某个`DOM`元素进行添加和删除操作，不能同时进行。应该先进行添加，之后再删除。
+* 同一个时间只能完成一个任务。
+* 用户操作不能同时进行，如：对某个`DOM`元素进行添加和删除操作，应该先进行添加，之后再删除。
 * 所有任务需要排队，前一个任务结束，才会执行后一个任务。
 
-> [!note]
+> [!warning]
 >
-> 单线程的问题是： 如果 JS 执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞的感觉。
+> 单线程的问题： 如果 JS 执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞的感觉。
 
-HTML5提出Web Worker标准，允许JavaScript脚本创建多个线程，出现了同步和异步。
+为了解决这个问题，利用多核 CPU 的计算能力，HTML5提出Web Worker标准，允许JavaScript脚本创建多个线程，出现了同步和异步。
 
 * 同步：前一个任务结束后再执行后一个任务，程序的执行顺序与任务的排列顺序是一致的、同步的。
   * 同步任务都在主线程上执行，形成一个执行栈。
@@ -71,23 +89,36 @@ HTML5提出Web Worker标准，允许JavaScript脚本创建多个线程，出现�
 JS执行机制
 
 1. 先执行执行栈中的同步任务。
-2.  异步任务放入任务队列中。
-3.  一旦执行栈中的所有同步任务执行完毕，系统就会按次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，开始执行。
+2. 异步任务放入任务队列中。
+3. 一旦执行栈中的所有同步任务执行完毕，系统就会按次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，开始执行。
 
 <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/develop/images/d-js/1633593121990_图片1.png" style="zoom:75%;" />
 
+由于主线程不断的重复获得任务、执行任务、再获取任务、再执行，所以这种机制被称为事件循环（event loop）。
+
 ```html
-<div class="root"></div>
+<body>
+    <div class="root"></div>
+</body>
 <script>
-  let root = document.querySelector('.root');
-  root.appendChild(document.createElement('h1')).textContent = '1';
-  document.addEventListener('click', function() {
-    root.appendChild(document.createElement('h1')).textContent = '4';
-  });
-  setTimeout(function() {
-    root.appendChild(document.createElement('h1')).textContent = '3';
-  }, 3000);
-  root.appendChild(document.createElement('h1')).textContent = '2';
+    function newH1(text) {
+        let h1 = document.createElement('h1');
+        h1.innerText = text;
+        return h1;
+    }
+
+    let root = document.querySelector('.root');
+    root.appendChild(newH1('1'));
+
+    document.addEventListener('click', function () {
+        root.appendChild(newH1('2'));
+    });
+
+    setTimeout(function () {
+        root.appendChild(newH1('3'));
+    }, 2000);
+
+    root.appendChild(newH1('4'));
 </script>
 ```
 
