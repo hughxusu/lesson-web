@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        div {
+            border: 1px solid #000;
+            font-size: 24px;
+            margin: 5px;
+            background-color: #f0f0f0;
+            width: 48px;
+            height: 48px;
+            line-height: 48px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+</body>
+<script>
+    function fibonacci(n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    // 用循环来代替递归
+    // function fibonacci2(n) {
+    //     if (n <= 1) {
+    //         return n;
+    //     }
+
+    //     let a = 0, b = 1, c = 0;
+    //     for (let i = 2; i <= n; i++) {
+    //         c = a + b;
+    //         a = b;
+    //         b = c;
+    //     }
+    //     return c;
+    // }
+    
+    document.write(`<ul>`);
+    for (let i = 0; i < 12; i++) {
+        document.write(
+            `
+                <li>
+                    <div>
+                        ${i}
+                    </div>
+                    <div>
+                        ${fibonacci2(i)}
+                    </div>
+                </li>
+            `
+        );
+    }
+    document.write(`</ul>`);
+</script>
+</html>

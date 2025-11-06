@@ -34,7 +34,6 @@
   * [循环控制](/docs/d-js/a-base/07-循环.md)
   * [函数](/docs/d-js/a-base/08-函数.md)
   * [对象](/docs/d-js/a-base/09-对象.md)
-  * [DOM操作](/docs/d-js/b-dom/1-基本.md)
 
 * Web API
   * [WebAPI基本知识](/docs/d-js/b-dom/1-基本.md)
