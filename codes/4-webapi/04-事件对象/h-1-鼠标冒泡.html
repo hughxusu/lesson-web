@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .root {
+            margin: 100px auto 0;
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+
+        .show {
+            margin: 12px auto;
+            width: 500px;
+        }
+
+        h3 {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="root">
+        <div class="inner"></div>
+    </div>
+    <div class="show"></div>
+</body>
+
+<script>
+    let show = document.querySelector('.show')
+
+    // mouseover会冒泡，所以会触发root的mouseover事件
+    let root = document.querySelector('.root')
+    root.addEventListener('mouseover', function (e) {
+        let ele = document.createElement('h3')
+        ele.innerHTML = 'move in skyblue'
+        show.appendChild(ele)
+    })
+
+    let inner = document.querySelector('.inner')
+    inner.addEventListener('mouseover', function (e) {
+        let ele = document.createElement('h3')
+        ele.innerHTML = 'move in purple'
+        show.appendChild(ele)
+    })
+</script>
+</html>

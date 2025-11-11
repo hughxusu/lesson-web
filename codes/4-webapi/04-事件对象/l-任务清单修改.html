@@ -86,7 +86,7 @@
     let todoes = [];
     let inputText = document.querySelector('#inputText');
     let displayText = document.querySelector('#displayText');
-    function runder() {
+    function rander() {
         displayText.innerHTML = '';
         for (let i = 0; i < todoes.length; i++) {
             let todo = todoes[i];
@@ -94,7 +94,7 @@
             newText.innerHTML = `
                 <div id="${i}">
                     <input type="checkbox" class="ok" style="margin-right: 12px;" ${todo.isDone ? 'checked' : ''}>
-                    <span>${todo.text}</span>
+                    <span style="text-decoration: ${todo.isDone ? 'line-through' : 'none'};">${todo.text}</span>
                 </div>
                 <button>
                     <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/develop/res/others/delete.png" class="delete">
@@ -109,7 +109,7 @@
         if (event.key === 'Enter') {
             let item = crateItem();
             todoes.push(item);
-            runder();
+            rander();
             inputText.value = '';
         }
     });
@@ -118,7 +118,7 @@
     addBtn.addEventListener('click', function (event) {
         let item = crateItem();
         todoes.push(item);
-        runder();
+        rander();
         inputText.value = '';
     });
 
@@ -126,10 +126,10 @@
         if (event.target.classList.contains('ok')) {
             let item = todoes[event.target.parentElement.id];
             item.isDone = event.target.checked;
-            runder();
+            rander();
         } else if (event.target.classList.contains('delete')) {
             todoes.splice(event.target.parentElement.id, 1);
-            runder();
+            rander();
         }
     });
 </script>

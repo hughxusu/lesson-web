@@ -79,40 +79,40 @@
     let addBtn = document.querySelector('#addBtn');
 
     function addItem() {
-        if (event.key === 'Enter' || event.type === 'click') {
-            let newText = document.createElement('li');
-            newText.innerHTML = `
-                <div>
-                    <input type="checkbox" class="ok" style="margin-right: 12px;">
-                    <span>${inputText.value}</span>
-                </div>
-                <button>
-                    <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/develop/res/others/delete.png" class="delete">
-                </button>
+        // if (event.key === 'Enter' || event.type === 'click') {
+        //     let newText = document.createElement('li');
+        //     newText.innerHTML = `
+        //         <div>
+        //             <input type="checkbox" class="ok" style="margin-right: 12px;">
+        //             <span>${inputText.value}</span>
+        //         </div>
+        //         <button>
+        //             <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/develop/res/others/delete.png" class="delete">
+        //         </button>
                 
-            `
-            newText.classList.add('item');
-            displayText.prepend(newText);
-            inputText.value = '';
-        }
+        //     `
+        //     newText.classList.add('item');
+        //     displayText.prepend(newText);
+        //     inputText.value = '';
+        // }
 
-        let okBtn = document.querySelectorAll('.ok');
-        for (let i = 0; i < okBtn.length; i++) {
-            okBtn[i].addEventListener('click', function () {
-                if (this.checked) {
-                    this.parentElement.parentElement.style.textDecoration = 'line-through';
-                } else {
-                    this.parentElement.parentElement.style.textDecoration = 'none';
-                }
-            });
-        }
+        // let okBtn = document.querySelectorAll('.ok');
+        // for (let i = 0; i < okBtn.length; i++) {
+        //     okBtn[i].addEventListener('click', function () {
+        //         if (this.checked) {
+        //             this.parentElement.parentElement.style.textDecoration = 'line-through';
+        //         } else {
+        //             this.parentElement.parentElement.style.textDecoration = 'none';
+        //         }
+        //     });
+        // }
 
-        let deleteBtn = document.querySelectorAll('.delete');
-        for (let i = 0; i < deleteBtn.length; i++) {
-            deleteBtn[i].addEventListener('click', function () {
-                this.parentElement.parentElement.remove();
-            });
-        }
+        // let deleteBtn = document.querySelectorAll('.delete');
+        // for (let i = 0; i < deleteBtn.length; i++) {
+        //     deleteBtn[i].addEventListener('click', function () {
+        //         this.parentElement.parentElement.remove();
+        //     });
+        // }
     }
 
     inputText.addEventListener('keydown', addItem);

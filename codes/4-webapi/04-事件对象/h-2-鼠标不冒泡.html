@@ -44,34 +44,19 @@
 <script>
     let show = document.querySelector('.show')
 
-    // mouseover会冒泡，所以会触发root的mouseover事件
+    // mouseenter不会冒泡，所以不会触发root的mouseenter事件
     let root = document.querySelector('.root')
-    root.addEventListener('mouseover', function (e) {
+    root.addEventListener('mouseenter', function (e) {
         let ele = document.createElement('h3')
         ele.innerHTML = 'move in skyblue'
         show.appendChild(ele)
     })
 
     let inner = document.querySelector('.inner')
-    inner.addEventListener('mouseover', function (e) {
+    inner.addEventListener('mouseenter', function (e) {
         let ele = document.createElement('h3')
         ele.innerHTML = 'move in purple'
         show.appendChild(ele)
     })
-
-    // mouseenter不会冒泡，所以不会触发root的mouseenter事件
-    // let root = document.querySelector('.root')
-    // root.addEventListener('mouseenter', function (e) {
-    //     let ele = document.createElement('h3')
-    //     ele.innerHTML = 'move in skyblue'
-    //     show.appendChild(ele)
-    // })
-
-    // let inner = document.querySelector('.inner')
-    // inner.addEventListener('mouseenter', function (e) {
-    //     let ele = document.createElement('h3')
-    //     ele.innerHTML = 'move in purple'
-    //     show.appendChild(ele)
-    // })
 </script>
 </html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .root {
+            margin: 100px auto;
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inner {
+            width: 300px;
+            height: 300px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="root">
+        <div class="inner">
+        </div>
+    </div>
+</body>
+
+<script>
+    // 事件捕获时阻止事件流动
+    let root = document.querySelector('.root')
+    root.addEventListener('click', function () {
+        alert('this is skyblue')
+    }, true)
+
+    let inner = document.querySelector('.inner')
+    inner.addEventListener('click', function () {
+        alert('this is purple')
+    }, true)
+
+    document.addEventListener('click', function (e) {
+        alert('this is document')
+        e.stopPropagation()
+    }, true)
+</script>
+
+
+
+</html>

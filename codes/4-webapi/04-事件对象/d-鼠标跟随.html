@@ -21,11 +21,12 @@
 <script>
     let img = document.querySelector('img')
     document.addEventListener('mousemove', function (e) {
-        // img.style.left = e.pageX + 'px'
-        // img.style.top = e.pageY + 'px'
+        img.style.left = e.pageX + 'px'
+        img.style.top = e.pageY + 'px'
 
-        img.style.left = e.pageX - 48 + 'px'
-        img.style.top = e.pageY - 48 + 'px'
+        // 图片中心跟随鼠标
+        // img.style.left = e.pageX - 48 + 'px'
+        // img.style.top = e.pageY - 48 + 'px'
     })
 </script>
 
