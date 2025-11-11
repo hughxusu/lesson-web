@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            font-size: 16px;
+            padding: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="save">保存</button>
+    <button id="load">读取</button>
+    <h1></h1>
+</body>
+<script>
+    let user = {
+        name: '李白',
+        age: 61,
+        isMale: true
+    }
+    JSON.stringify(user)
+
+    let save = document.querySelector('#save')
+    save.addEventListener('click', function () {
+        localStorage.setItem('user', JSON.stringify(user))
+    })
+
+    let load = document.querySelector('#load')
+    let h1 = document.querySelector('h1')
+    load.addEventListener('click', function () {
+        let user = JSON.parse(localStorage.getItem('user'))
+        if (!user) return
+        console.log(user)
+        h1.innerText = `姓名： ${user.name}, 年龄： ${user.age}, 性别： ${user.isMale ? '男' : '女'}`
+    })
+</script>
+
+</html>

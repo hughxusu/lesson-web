@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            text-align: center;
+            margin-top: 48px;
+        }
+        button {
+            padding: 5px 10px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <button class="forward">前进</button>
+        <button class="back">后退</button>
+    </div>
+</body>
+<script>
+    let forward = document.querySelector('.forward')
+    let back = document.querySelector('.back')
+    forward.addEventListener('click', function () {
+        history.go(1)
+    })
+    back.addEventListener('click', function () {
+        history.go(-1)
+    })
+</script>
+
+</html>

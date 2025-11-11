@@ -180,57 +180,77 @@ document.write(`<h1>${location.search}</h1>`)
 
 `hash`属性获取地址中的啥希值，符号#后面部分。
 
+```html
+<body>
+    <ul>
+        <li>
+            <a href="#/contact">联系我们</a>
+        </li>
+        <li>
+            <a href="#/shop">商场</a>
+        </li>
+        <li>
+            <a href="#/collection">合集</a>
+        </li>
+        <li>
+            <a href="#/project">项目</a>
+        </li>
+    </ul>
+    <h1 class="content">
+    </h1>
+</body>
+<script>
+    let content = document.querySelector('.content')
+    let ul = document.querySelector('ul')
+    ul.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            content.innerHTML = e.target.innerHTML
+        }
+    })
+</script>
 ```
-```
+
+> [!warning]
+>
+> 该方法常用于不刷新页面，显示页面的不同部分，在Vue等框架中使用。
 
 #### 刷新页面
 
-* `reload`方法用来刷新当前页面，传入参数`true`时表示强制刷新。
+`reload`方法用来刷新当前页面，传入参数`true`时表示强制刷新。
+
+> [!warning]
+>
+> 强制刷新会清空缓存，重新从网站下载数据。
 
 ```html
-<style>
-  .timer {
-    margin-top: 60px;
-    text-align: center;
-  }
-  #startButton {
-    padding: 8px 12px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: skyblue;
-    border: 0;
-  }
-  #startButton:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-</style>
-<div class="timer">
-  <h1 id="seconds">10</h1>
-  <button id="startButton">renew</button>
-</div>
+<body>
+    <div class="timer">
+        <h1 id="seconds">10</h1>
+        <button id="refresh">刷新</button>
+    </div>
+</body>
 <script>
-  let seconds = document.querySelector('#seconds');
-  let startButton = document.querySelector('#startButton');
-  let intervalId;
-  let aim = +new Date() + 10 * 1000;
+    let seconds = document.querySelector('#seconds');
+    let startButton = document.querySelector('#refresh');
+    let intervalId;
+    let aim = +new Date() + 10 * 1000;
 
-  function time() {
-    let now = Date.now();
-    let count = Math.round((aim - now) / 1000);
-    if (count <= 0) {
-      clearInterval(intervalId);
-      startButton.disabled = false;
-      count = 0;
+    function time() {
+        let now = Date.now();
+        let count = Math.round((aim - now) / 1000);
+        if (count <= 0) {
+            clearInterval(intervalId);
+            startButton.disabled = false;
+            count = 0;
+        }
+        seconds.innerHTML = count;
     }
-    seconds.innerHTML = count;
-  }
-  time();
-  setInterval(time, 1000);
+    time();
+    setInterval(time, 1000);
 
-  startButton.onclick = function () {
-    location.reload();
-  }
+    startButton.onclick = function () {
+        location.reload();
+    }
 </script>
 ```
 
@@ -241,10 +261,12 @@ document.write(`<h1>${location.search}</h1>`)
 * 通过`userAgent`属性可以检测浏览器的版本及平台。
 
 ```html
-<h1></h1>
+<body>
+    <h1></h1>
+</body>
 <script>
-  let h1 = document.querySelector('h1')
-  h1.innerText = navigator.userAgent
+    let h1 = document.querySelector('h1')
+    h1.innerText = navigator.userAgent
 </script>
 ```
 
@@ -254,21 +276,37 @@ document.write(`<h1>${location.search}</h1>`)
 
 * `back()`后退
 * `forward()`前进
-* `go(param)`跳转功能，`param`为跳转页数，1向前跳转一页，-1向后跳转一页。
 
 ```html
-<button class="forward">前进</button>
-<button class="back">后退</button>
+<body>
+    <div>
+        <button class="forward">前进</button>
+        <button class="back">后退</button>
+    </div>
+</body>
 <script>
-  let forward = document.querySelector('.forward')
-  let back = document.querySelector('.back')
-  forward.addEventListener('click', function () {
-    history.forward()
-  })
-  back.addEventListener('click', function () {
-    history.back()
-  })
+    let forward = document.querySelector('.forward')
+    let back = document.querySelector('.back')
+    forward.addEventListener('click', function () {
+        history.forward()
+    })
+    back.addEventListener('click', function () {
+        history.back()
+    })
 </script>
+```
+
+* `go(param)`跳转功能，`param`为跳转页数，1向前跳转一页，-1向后跳转一页。
+
+```js
+let forward = document.querySelector('.forward')
+let back = document.querySelector('.back')
+forward.addEventListener('click', function () {
+    history.go(1)
+})
+back.addEventListener('click', function () {
+    history.go(-1)
+})
 ```
 
 ## 本地存储
@@ -281,40 +319,59 @@ document.write(`<h1>${location.search}</h1>`)
 
 ### localStorage
 
+`localStorage`的特点：
+
 1. 生命周期永久生效，除非手动删除否则关闭页面也会存在。
 2. 可以多页面共享数据。
 3. 以键值对的形式存储使用。
 
-存储数据：`localStorage.setItem(key, value)`，`key`数据名字，`value`保存数据值。获取数据：`localStorage.getItem(key)`，`key`数据名字。
+`localStorage`的使用
+
+* 存储数据：`localStorage.setItem(key, value)`，通过`key`（数据名字），保存`value`（数据值）。
 
 ```html
-<style>
-  input, button {
-    padding: 4px;
-    font-size: 16px;
-  }
-
-  input {
-    width: 200px;
-  }
-</style>
-<input value="山中无历日，寒尽不知年">
-<button>save</button>
-<h1></h1>
+<body>
+    <input value="山中无历日，寒尽不知年">
+    <button>save</button>
+</body>
 <script>
-  let btn = document.querySelector('button')
-  let h1 = document.querySelector('h1')
-  let input = document.querySelector('input')
-  btn.addEventListener('click', function () {
-    let msg = input.value
-    if (!msg) return
-    localStorage.setItem('msg', msg)
-    h1.innerHTML = msg
-  })
-  let msg = localStorage.getItem('msg')
-  if (msg) {
-    h1.innerHTML = msg
-  }
+    let btn = document.querySelector('button')
+    let input = document.querySelector('input')
+    btn.addEventListener('click', function () {
+        let msg = input.value
+        if (!msg) return
+        localStorage.setItem('msg', msg)
+        h1.innerHTML = msg
+    })
+</script>
+```
+
+* 获取数据：`localStorage.getItem(key)`，通过`key`获取数据。
+
+```html
+<body>
+    <h1></h1>
+</body>
+<script>
+    let h1 = document.querySelector('h1')
+    let msg = localStorage.getItem('msg')
+    if (msg) {
+        h1.innerHTML = msg
+    }
+</script>
+```
+
+* 删除数据：`localStorage.removeItem(key)`，通过`key`删除数据。
+
+```html
+<body>
+    <button>删除</button>
+</body>
+<script>
+    let btn = document.querySelector('button')
+    btn.addEventListener('click', function () {
+        localStorage.removeItem('msg')
+    })
 </script>
 ```
 
@@ -322,40 +379,44 @@ document.write(`<h1>${location.search}</h1>`)
 
 本地只能存储字符串，无法存储复杂数据类型。需要将复杂数据类型转换成JSON字符串，在存储到本地。
 
-`JSON.stringify(obj)`对象转换成json字符串，`obj`对象数据；`JSON.parse(str)`将json字符串转换成数据，`str`字符串数据。
+* `JSON.stringify(obj)`对象转换成json字符串，`obj`对象数据。
+* `JSON.parse(str)`将json字符串转换成数据，`str`字符串数据。
 
 ```html
-<style>
-  button {
-    font-size: 16px;
-    padding: 6px;
-  }
-</style>
-<button id="save">save item</button>
-<button id="button">load item</button>
-<h1></h1>
+<body>
+    <button id="save">保存</button>
+    <button id="load">读取</button>
+    <h1></h1>
+</body>
 <script>
-  let user = {
-    name: 'Tom',
-    age: 18,
-    isMale: true
-  }
-  JSON.stringify(user)
+    let user = {
+        name: '李白',
+        age: 61,
+        isMale: true
+    }
+    JSON.stringify(user)
 
-  let saveBtn = document.querySelector('#save')
-  saveBtn.addEventListener('click', function () {
-    localStorage.setItem('user', JSON.stringify(user))
-  })
+    let save = document.querySelector('#save')
+    save.addEventListener('click', function () {
+        localStorage.setItem('user', JSON.stringify(user))
+    })
 
-  let loadBtn = document.querySelector('#button')
-  let h1 = document.querySelector('h1')
-  loadBtn.addEventListener('click', function () {
-    let user = JSON.parse(localStorage.getItem('user'))
-    if (!user) return
-    console.log(user)
-    h1.innerText = `user name is ${user.name}, age is ${user.age}, isMale is ${user.isMale}`
-  })
+    let load = document.querySelector('#load')
+    let h1 = document.querySelector('h1')
+    load.addEventListener('click', function () {
+        let user = JSON.parse(localStorage.getItem('user'))
+        if (!user) return
+        console.log(user)
+        h1.innerText = `姓名： ${user.name}, 年龄： ${user.age}, 性别： ${user.isMale ? '男' : '女'}`
+    })
 </script>
+```
+
+## 综合案例
+
+将任务清单保存到`localStorage`，通过读取`localStorage`数据刷新清单界面。
+
+```js
 ```
 
 

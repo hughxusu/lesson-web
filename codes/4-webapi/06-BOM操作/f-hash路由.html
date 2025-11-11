@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            font-size: 20px;
+            list-style: none;
+            padding: 24px 64px;
+        }
+
+        li {
+            float: left;
+            margin-right: 48px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        h1 {
+            margin: 64px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <a href="#/contact">联系我们</a>
+        </li>
+        <li>
+            <a href="#/shop">商场</a>
+        </li>
+        <li>
+            <a href="#/collection">合集</a>
+        </li>
+        <li>
+            <a href="#/project">项目</a>
+        </li>
+    </ul>
+    <h1 class="content">
+    </h1>
+</body>
+<script>
+    let content = document.querySelector('.content')
+    let ul = document.querySelector('ul')
+    ul.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            content.innerHTML = e.target.innerHTML
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input,
+        button {
+            padding: 4px;
+            font-size: 16px;
+        }
+
+        input {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <input value="山中无历日，寒尽不知年">
+    <button>save</button>
+</body>
+<script>
+    let btn = document.querySelector('button')
+    let input = document.querySelector('input')
+    btn.addEventListener('click', function () {
+        let msg = input.value
+        if (!msg) return
+        localStorage.setItem('msg', msg)
+        h1.innerHTML = msg
+    })
+</script>
+
+</html>

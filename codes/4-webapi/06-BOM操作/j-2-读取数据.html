@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input,
+        button {
+            padding: 4px;
+            font-size: 16px;
+        }
+
+        input {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+</body>
+<script>
+    let h1 = document.querySelector('h1')
+    let msg = localStorage.getItem('msg')
+    if (msg) {
+        h1.innerHTML = msg
+    }
+</script>
+
+</html>

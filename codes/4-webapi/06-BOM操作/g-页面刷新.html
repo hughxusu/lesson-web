@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .timer {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        #refresh {
+            padding: 8px 12px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: skyblue;
+            border: 0;
+        }
+
+        #refresh:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer">
+        <h1 id="seconds">10</h1>
+        <button id="refresh">刷新</button>
+    </div>
+</body>
+<script>
+    let seconds = document.querySelector('#seconds');
+    let startButton = document.querySelector('#refresh');
+    let intervalId;
+    let aim = +new Date() + 10 * 1000;
+
+    function time() {
+        let now = Date.now();
+        let count = Math.round((aim - now) / 1000);
+        if (count <= 0) {
+            clearInterval(intervalId);
+            startButton.disabled = false;
+            count = 0;
+        }
+        seconds.innerHTML = count;
+    }
+    time();
+    setInterval(time, 1000);
+
+    startButton.onclick = function () {
+        location.reload();
+    }
+</script>
+
+</html>

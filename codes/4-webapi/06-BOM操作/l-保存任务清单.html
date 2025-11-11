@@ -75,19 +75,26 @@
     </div>
 </body>
 <script>
+    function loadTodoes() {
+        let todoes = JSON.parse(localStorage.getItem('todoes')) || []
+        return todoes
+    }
+
     function crateItem() {
         let item = {
             isDone: false,
             text: inputText.value,
         }
-        return item
+        let todoes = loadTodoes()
+        todoes.push(item)
+        localStorage.setItem('todoes', JSON.stringify(todoes))
     }
 
-    let todoes = []
     let inputText = document.querySelector('#inputText')
     let displayText = document.querySelector('#displayText')
     function rander() {
-        displayText.innerHTML = ''
+        let todoes = loadTodoes();
+        displayText.innerHTML = '';
         for (let i = 0; i < todoes.length; i++) {
             let todo = todoes[i];
             let newText = document.createElement('li');
@@ -100,38 +107,39 @@
                     <img src="https://raw.githubusercontent.com/hughxusu/lesson-web/develop/res/others/delete.png" class="delete">
                 </button>
             `
-            newText.classList.add('item')
-            displayText.prepend(newText)
+            newText.classList.add('item');
+            displayText.prepend(newText);
+            inputText.value = '';
         }
     }
 
+    rander()
     inputText.addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
-            let item = crateItem()
-            todoes.push(item)
+            crateItem();
             rander();
-            inputText.value = ''
         }
-    });
+    })
 
     let addBtn = document.querySelector('#addBtn');
     addBtn.addEventListener('click', function (event) {
-        let item = crateItem()
-        todoes.push(item)
-        rander()
-        inputText.value = ''
-    });
+        crateItem();
+        rander();
+    })
 
     displayText.addEventListener('click', function (event) {
+        let todoes = loadTodoes();
         if (event.target.classList.contains('ok')) {
-            let item = todoes[event.target.parentElement.id]
-            item.isDone = event.target.checked
-            rander()
+            let item = todoes[event.target.parentElement.id];
+            item.isDone = event.target.checked;
+            localStorage.setItem('todoes', JSON.stringify(todoes));
+            rander();
         } else if (event.target.classList.contains('delete')) {
-            todoes.splice(event.target.parentElement.id, 1)
-            rander()
+            todoes.splice(event.target.parentElement.id, 1);
+            localStorage.setItem('todoes', JSON.stringify(todoes));
+            rander();
         }
-    });
+    })
 </script>
 
 </html>
