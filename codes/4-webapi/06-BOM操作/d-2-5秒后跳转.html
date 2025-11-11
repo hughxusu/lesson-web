@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: red;
+        }
+
+        a {
+            font-size: 18px;
+            display: block;
+            margin: 40px auto;
+            text-align: center;
+            width: 360px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://www.baidu.com/">支付成功，<span>5</span> 秒之后跳转首页</a>
+</body>
+<script>
+    let a = document.querySelector('a')
+    let num = 4
+    let timer = setInterval(function () {
+        a.innerHTML = `支付成功，<span>${num--}</span> 秒之后跳转首页`
+        if (num === 0) {
+            clearInterval(timer)
+            location.href = 'https://www.baidu.com/'
+        }
+    }, 1000)
+</script>
+
+</html>
