@@ -96,6 +96,7 @@
     let contents = document.querySelectorAll('.content');
     for (let i = 0; i < tabs.length; i++) {
         tabs[i].addEventListener('click', function () {
+            // 循环移除
             for (let j = 0; j < tabs.length; j++) {
                 tabs[j].classList.remove('active');
                 contents[j].classList.remove('active');
@@ -103,9 +104,9 @@
             this.classList.add('active');
             contents[this.dataset.index].classList.add('active');
 
+            // 使用选择器移除
             // document.querySelector('.tab-item.active').classList.remove('active');
             // this.classList.add('active');
-
             // document.querySelector('.content.active').classList.remove('active');
             // contents[this.dataset.index].classList.add('active');
         });
